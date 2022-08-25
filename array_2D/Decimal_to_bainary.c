@@ -9,7 +9,7 @@ int main(){
         num = num / 2;
     }
     printf("binary number is: ");
-    for (j = i - 1; j >= 0; j--){
+    for (j = i ; j >= 0; j--){
         printf("%d", arr[j]);
     }
     return 0;
