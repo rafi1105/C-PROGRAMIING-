@@ -47,20 +47,20 @@ int main()
     case 3:
     {
         printf("How many numbers:");
- scanf("%d", &n);
- printf ("Enter numbers: ");
- for(i = 0; i<n; i++)
- {
- scanf("%f", &a[i]);
- }
-        sum= 0;
- for(i = 0; i < n; i++)
- {
-   sum+= (a[i] - mean) * (a[i] - mean);
-   sd = sqrt(sum / n);
-   
-   printf("Standard Deviation: %f\n", sd);
-    }
+        scanf("%d", &n);
+        printf ("Enter numbers: ");
+        for(i = 0; i<n; i++)
+        {
+        scanf("%f", &a[i]);
+        }
+                sum= 0;
+        for(i = 0; i < n; i++)
+        {
+            sum+= (a[i] - mean) * (a[i] - mean);
+            sd = sqrt(sum / n);
+            
+            printf(" Standard Deviation: %f \n", sd);
+        }
 
     }
     break;
