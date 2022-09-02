@@ -7,7 +7,7 @@ int main()
     int i,alphabets=0,digits=0,specialcharacters=0;
  
     printf("Enter  the string : ");
-    gets(s);
+    scanf("%[^\n]",s);
      
     for(i=0;s[i];i++)  
     {
@@ -18,9 +18,7 @@ int main()
         else
          specialcharacters++;
 
- 	}
- 	
-     
+ 	} 
     printf("Alphabets = %d\n",alphabets);
     printf("Digits = %d\n",digits);
     printf("Special characters = %d", specialcharacters);
