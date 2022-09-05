@@ -8,7 +8,7 @@ int main()
 	int cgst=0,sgst=0;
 	char ch='y',ok='y',order='y';
 	const char *crr[50];
-	printf("\t\tWelcome to Dalpat Restaurant\n\n");
+	printf("\t\tWelcome to Green Restaurant\n\n");
 	printf("Choose your meal plan :\n\n");
 	printf("1. Breakfast\n2. Lunch\n3. Dinner\n\n");
 	scanf("%d",&a);
@@ -18,10 +18,10 @@ int main()
 		do
 		{
 			printf("\tChoose your order :\n\n\t");
-			printf("1.Poha\t\t50/-\n\t");
-			printf("2.Aloo Paratha\t60/-\n\t");
-			printf("3.Dosa\t\t40/-\n\t");
-			printf("4.Sandwitch\t80/-\n\n\t");
+			printf("1.Tost and Egg (50)/-\n\t");
+			printf("2.Aloo Paratha (60)/-\n\t");
+			printf("3.Paratha and egg (40)/-\n\t");
+			printf("4.Sandwitch (80)/-\n\n\t");
 		}while(ch=='n');
 		do
 		{
@@ -50,7 +50,7 @@ int main()
 			g++;
 			if(b==1)
 			{
-				crr[0]="Poha        ";
+				crr[0]="Tost and Egg        ";
 				prr[0]=50;
 			}
 			else if(b==2)
@@ -60,7 +60,7 @@ int main()
 			}
 			else if(b==3)
 			{
-				crr[2]="Dosa        ";
+				crr[2]="Paratha and egg        ";
 				prr[2]=40;
 			}
 			else
@@ -75,10 +75,10 @@ int main()
 		do
 		{
 			printf("\tChoose your order :\n\n\t");
-			printf("1.Tandoori Roti\t15/-\n\t");
-			printf("2.Kadhai Paneer\t140/-\n\t");
-			printf("3.Dal Chawal\t100/-\n\t");
-			printf("4.Salad/Curd\t50/-\n\n\t");
+			printf("1.Tandoori Roti (15)/-\n\t");
+			printf("2.Kadhai Paneer (140)/-\n\t");
+			printf("3.Dal Rice (100)/-\n\t");
+			printf("4.Salad/Curd (50)/-\n\n\t");
 		}while(ch=='n');
 		do
 		{
@@ -116,7 +116,7 @@ int main()
 			}
 			else if(b==3)
 			{
-				crr[2]="Dal Chawal";
+				crr[2]="Dal Rice";
 				prr[2]=100;
 			}
 			else

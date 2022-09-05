@@ -1,220 +1,315 @@
- #include<stdio.h>
- #include<conio.h>
- #include<stdlib.h>
+#include <stdio.h >
+#include <stdlib.h >
+#include <string.h >
+char *productName[] = {"sugar", "milk", "vegetable masala", "washing powder", "salt", "poha", "oil", "tooth paste", "hair conditionar", "wheat flour", "red chilli", "maida", "coffee", "tea", "butter", "milk powder", "turmeric powder", "hair oil", "ghee", "face powder"};
+char product_name[19][20];
+int product_quantity[19];
+int count1 = 0, total_bill = 0, total_bill1 = 0, discount;
+int sugar_p = 50, milk_p = 50, vegetable_masala_p = 50, wahing_powder_p = 100, salt_p = 20, poha_p = 50, oil_p = 200, tooth_paste_p = 40, hair_conditionar_p = 120, wheat_flour_p = 50, red_chilli_p = 40, maida_p = 45, coffee_p = 200, tea_p = 100, butter_p = 100, milk_powder_p = 150, turnmeric_powder_p = 200, hair_oil_p = 60, ghee_p = 300, face_powder_p = 70;
+void generate_bill()
+{
+    printf("\n\t    **** AKSHAY GROCERY STORE BILL ****\n");
+    printf("|--------------------------------------------------------\n");
+    printf("|  Product\t\tQuantity\t\tPrice   |\n");
+    printf("|--------------------------------------------------------\n");
+    for (int i = 0; i < count1; i++)
+    {
+        if (!strcmp("sugar", product_name[i]))
+        {
+            printf("|  %s           \t%dkg     \t\t%d  \n", product_name[i], product_quantity[i], sugar_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("milk", product_name[i]))
+        {
+            printf("|  %s            \t%dpac      \t\t%d  \n", product_name[i], product_quantity[i], milk_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("vegetable masala", product_name[i]))
+        {
+            printf("|  %s     \t%dpac      \t\t%d  \n", product_name[i], product_quantity[i], vegetable_masala_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("washing powder", product_name[i]))
+        {
+            printf("|  %s      \t%dkg     \t\t%d  \n", product_name[i], product_quantity[i], wahing_powder_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("salt", product_name[i]))
+        {
+            printf("|  %s            \t%dkg     \t\t%d  \n", product_name[i], product_quantity[i], salt_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("poha", product_name[i]))
+        {
+            printf("|  %s            \t%dkg    \t\t%d  \n", product_name[i], product_quantity[i], poha_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("oil", product_name[i]))
+        {
+            printf("|  %s                 \t%dltr      \t\t%d  \n", product_name[i], product_quantity[i], oil_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("tooth paste", product_name[i]))
+        {
+            printf("|  %s          \t%dpac      \t\t%d  \n", product_name[i], product_quantity[i], tooth_paste_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("hair conditionar", product_name[i]))
+        {
+            printf("|  %s    \t%dpac      \t\t%d  \n", product_name[i], product_quantity[i], hair_conditionar_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("wheat flour", product_name[i]))
+        {
+            printf("|  %s       \t%dkg     \t\t%d  \n", product_name[i], product_quantity[i], wheat_flour_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("red chilli", product_name[i]))
+        {
+            printf("|  %s           \t%dpac      \t\t%d  \n", product_name[i], product_quantity[i], red_chilli_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("maida", product_name[i]))
+        {
+            printf("|  %s                \t%dkg     \t\t%d  \n", product_name[i], product_quantity[i], maida_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("coffee", product_name[i]))
+        {
+            printf("|  %s          \t%dpac      \t\t%d  \n", product_name[i], product_quantity[i], coffee_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("tea", product_name[i]))
+        {
+            printf("|  %s             \t%dpac      \t\t%d  \n", product_name[i], product_quantity[i], tea_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("butter", product_name[i]))
+        {
+            printf("|  %s               \t%dpac      \t\t%d  \n", product_name[i], product_quantity[i], butter_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("milk powder", product_name[i]))
+        {
+            printf("|  %s          \t%dpac      \t\t%d  \n", product_name[i], product_quantity[i], milk_powder_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("turmeric powder", product_name[i]))
+        {
+            printf("|  %s      \t%dkg     \t\t%d  \n", product_name[i], product_quantity[i], turnmeric_powder_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("hair oil", product_name[i]))
+        {
+            printf("|  %s            \t%dpac      \t\t%d  \n", product_name[i], product_quantity[i], hair_oil_p*product_quantity[i]);
+            printf("|--------------------------------------------------------\n");
+        }
+        else if (!strcmp("ghee", product_name[i]))
+        {
+            printf("|  %s               \t%dkg     \t\t%d  \n", product_name[i], product_quantity[i], ghee_p*product_quantity[i]);
+            printf("|-------------------------------------------------------\n");
+        }
+        else if (!strcmp("face powder", product_name[i]))
+        {
+            printf("|  %s          \t%dpac      \t\t%d  \n", product_name[i], product_quantity[i], face_powder_p*product_quantity[i]);
+            printf("|-------------------------------------------------------\n");
+        }
+    }
+    printf("| Total product %d \t\tTotal amount    %d\n", count1, total_bill1);
+    printf("|--------------------------------------------------------\n");
+    printf("|                  \t\tDiscount        %d\n", discount);
+    printf("|--------------------------------------------------------\n");
+    printf("|                  \t\tPayable ammount %d\n", total_bill);
+    printf("|--------------------------------------------------------\n");
+}
+void calculate_bill()
+{
+    char choose;
+    for (int i = 0; i < count1; i++)
+    {
+        if (!strcmp("sugar", product_name[i]))
+        {
+            total_bill += sugar_p * product_quantity[i];
+        }
+        else if (!strcmp("milk", product_name[i]))
+        {
+            total_bill += milk_p * product_quantity[i];
+        }
+        else if (!strcmp("vegetable masala", product_name[i]))
+        {
+            total_bill += vegetable_masala_p * product_quantity[i];
+        }
+        else if (!strcmp("washing powder", product_name[i]))
+        {
+            total_bill += wahing_powder_p * product_quantity[i];
+        }
+        else if (!strcmp("salt", product_name[i]))
+        {
+            total_bill += salt_p * product_quantity[i];
+        }
+        else if (!strcmp("poha", product_name[i]))
+        {
+            total_bill += poha_p * product_quantity[i];
+        }
+        else if (!strcmp("oil", product_name[i]))
+        {
+            total_bill += oil_p * product_quantity[i];
+        }
+        else if (!strcmp("tooth paste", product_name[i]))
+        {
+            total_bill += tooth_paste_p * product_quantity[i];
+        }
+        else if (!strcmp("hair conditionar", product_name[i]))
+        {
+            total_bill += hair_conditionar_p * product_quantity[i];
+        }
+        else if (!strcmp("wheat flour", product_name[i]))
+        {
+            total_bill += wheat_flour_p * product_quantity[i];
+        }
+        else if (!strcmp("red chilli", product_name[i]))
+        {
+            total_bill += red_chilli_p * product_quantity[i];
+        }
+        else if (!strcmp("maida", product_name[i]))
+        {
+            total_bill += maida_p * product_quantity[i];
+        }
+        else if (!strcmp("coffee", product_name[i]))
+        {
+            total_bill += coffee_p * product_quantity[i];
+        }
+        else if (!strcmp("tea", product_name[i]))
+        {
+            total_bill += tea_p * product_quantity[i];
+        }
+        else if (!strcmp("butter", product_name[i]))
+        {
+            total_bill += butter_p * product_quantity[i];
+        }
+        else if (!strcmp("milk powder", product_name[i]))
+        {
+            total_bill += milk_powder_p * product_quantity[i];
+        }
+        else if (!strcmp("turmeric powder", product_name[i]))
+        {
+            total_bill += turnmeric_powder_p * product_quantity[i];
+        }
+        else if (!strcmp("hair oil", product_name[i]))
+        {
+            total_bill += hair_oil_p * product_quantity[i];
+        }
+        else if (!strcmp("ghee", product_name[i]))
+        {
+            total_bill += ghee_p * product_quantity[i];
+        }
+        else if (!strcmp("face powder", product_name[i]))
+        {
+            total_bill += face_powder_p * product_quantity[i];
+        }
+    }
+    total_bill1 = total_bill;
+    if (total_bill >= 15000)
+    {
+        discount = (15 * total_bill) / 100;
+        total_bill = total_bill - discount;
+    }
+    else if (total_bill >= 10000 && total_bill < 15000)
+    {
+        discount = (10 * total_bill) / 100;
+        total_bill = total_bill - discount;
+    }
+    else if (total_bill >= 5000 && total_bill < 10000)
+    {
+        discount = (5 * total_bill) / 100;
+        total_bill = total_bill - discount;
+    }
+repeate:
+    printf("\nIf you want to generate your bill then press 'Y' otherwise 'N': ");
+    fflush(stdin);
+    scanf("%c", &choose);
+    if (choose == 'Y' || choose == 'y')
+    {
+        generate_bill();
+    }
+    else if (choose == 'N' || choose == 'n')
+    {
+        exit(0);
+    }
+    else
+    {
+        printf("Invalid character tyr again\n");
+        goto repeate;
+    }
+}
+void main()
+{
+    char ch, temp_str[20];
+    int check,count=0;
+    printf("\n\n   ***WELCOME TO AKSAHY GROCERY STORE***\n\n");
+    printf("   Here are our store discount rates\n");
+    printf("***************************************\n");
+    printf("| less than 5000 buy 0%% discount      |\n");
+    printf("|-------------------------------------|\n");
+    printf("| greater than 5000 buy 5%% discount   |\n");
+    printf("|-------------------------------------|\n");
+    printf("| greater than 10000 buy 10%% discount |\n");
+    printf("|-------------------------------------|\n");
+    printf("| greater than 15000 buy 15%% discount |\n");
+    printf("***************************************\n\n");
+    printf("Please enter all product bought by you\n");
+    for (int i = 0; i < 20; i++)
+    {
 
- void input();
- void writefile();
- void search();
- void output();
-
- struct date{
-	   int month;
-	   int day;
-	   int year;
-	   };
-
-  struct account {
-	int number;
-	char name[100];
-	int acct_no;
-	float mobile_no;
-	char street[100];
-	char city[100];
-	char acct_type;
-	float oldbalance;
-	float newbalance;
-	float payment;
-	struct date lastpayment;
-  }customer;
-  int tl,sl,ts;
- void main()
-	{
-	  int i,n;
-	  char ch;
-	  clrscr();
-
-	  _setcursortype(_NOCURSOR);
-	  printf("   CUSTOMER BILLING SYSTEM:\n\n");
-	  printf("===============================\n");
-	  printf("\n1:    to add account on list\n");
-	  printf("2:    to search customer account\n");
-	  printf("3:    exit\n");
-	  printf("\n================================\n");
-	  do{
-	       printf("\nselect what do you want to do?");
-	       ch=getche();
-	  }while(ch<='0' || ch>'3');
-	  switch(ch){
-		case '1':
-			clrscr();
-			printf("\nhow many customer accounts?");
-			scanf("%d",&n);
-			for(i=0;i<n;i++){
-				input();
-				if(customer.payment>0)
-					customer.acct_type=(customer.payment<0.1*customer.oldbalance)? 'O': 'D';
-				else
-					customer.acct_type=(customer.oldbalance>0)?'D' : 'C';
-				customer.newbalance=customer.oldbalance - customer.payment;
-				writefile();
-			}
-			main();
-		case '2':
-			clrscr();
-			printf("search by what?\n");
-			printf("\n1 --- search by customer number\n");
-			printf("2 --- search by customer name\n");
-			search();
-			ch=getche();
-			main();
-		case '3':
-			clrscr();
-			delay(700);
-			textcolor(RED);
-			gotoxy(25,25);
-			cprintf("\nA PROJECT BY BIDUR & SUJAN");
-			delay(1500);
-			exit(1);
-	  }
- }
-
-
-   void input()
-	{
-	  FILE *fp=fopen("bidur.dat","rb");
-	  fseek (fp,0,SEEK_END);
-	  tl=ftell(fp);
-	  sl=sizeof(customer);
-	  ts=tl/sl;
-	  fseek(fp,(ts-1)*sl,SEEK_SET);
-	  fread(&customer,sizeof(customer),1,fp);
-	  printf("\ncustomer no:%d\n",++customer.number);
-	  fclose(fp);
-	  printf("         Account number:");
-	  scanf("%d",&customer.acct_no);
-	  printf("\n       Name:");
-	  scanf("%s",customer.name);
-	  printf("\n       mobile no:");
-	  scanf("%f",&customer.mobile_no);
-	  printf("         Street:");
-	  scanf("%s",customer.street);
-	  printf("         City:");
-	  scanf("%s",customer.city);
-	  printf("         Previous balance:");
-	  scanf("%f",&customer.oldbalance);
-	  printf("         Current payment:");
-	  scanf("%f",&customer.payment);
-	  printf("         Payment date(mm/dd/yyyy):");
-	  scanf("%d/%d/%d",&customer.lastpayment.month,&customer.lastpayment.day,&customer.lastpayment.year);
-	  return;
-   }
-
-   void writefile()
-   {
-	  FILE *fp;
-	  fp=fopen("bidur.dat","ab");
-	  fwrite(&customer,sizeof(customer),1,fp);
-	  fclose(fp);
-	  return;
-   }
-
-   void search()
-   {
-	 char ch;
-	 char nam[100];
-	 int n,i,m=1;
-	 FILE *fp;
-	 fp=fopen("bidur.dat","rb");
-	 do{
-		printf("\nenter your choice:");
-		ch=getche();
-	 }while(ch!='1' && ch!='2');
-	 switch(ch){
-	      case '1':
-		    fseek(fp,0,SEEK_END);
-		    tl=ftell(fp);
-		    sl=sizeof(customer);
-		    ts=tl/sl;
-		    do{
-			printf("\nchoose customer number:");
-			scanf("%d",&n);
-			if(n<=0 || n>ts)
-			printf("\nenter correct\n");
-			else{
-			    fseek(fp,(n-1)*sl,SEEK_SET);
-			    fread(&customer,sl,1,fp);
-			    output();
-			}
-			printf("\n\nagain?(y/n)");
-			ch=getche();
-		    }while(ch=='y');
-		    fclose(fp);
-		    break;
-	      case '2':
-		    fseek(fp,0,SEEK_END);
-		    tl=ftell(fp);
-		    sl=sizeof(customer);
-		    ts=tl/sl;
-		    fseek(fp,(ts-1)*sl,SEEK_SET);
-		    fread(&customer,sizeof(customer),1,fp);
-		    n=customer.number;
-
-		    do{
-			printf("\nenter the name:");
-			scanf("%s",nam);
-			fseek(fp,0,SEEK_SET);
-			for(i=1;i<=n;i++)
-			{
-			     fread(&customer,sizeof(customer),1,fp);
-			     if(strcmp(customer.name,nam)==0)
-			     {
-				output();
-				m=0;
-				break;
-			     }
-			}
-			if(m!=0)
-			printf("\n\ndoesn't exist\n");
-			printf("\nanother?(y/n)");
-			ch=getche();
-		    }while(ch=='y');
-		    fclose(fp);
-	      }
-	      return;
-	 }
-
-
-
-   void output()
-	 {
-	   printf("\n\n    Customer no    :%d\n",customer.number);
-	   printf("    Name 	   :%s\n",customer.name);
-	   printf("    Mobile no      :%.f\n",customer.mobile_no);
-	   printf("    Account number :%d\n",customer.acct_no);
-	   printf("    Street         :%s\n",customer.street);
-	   printf("    City           :%s\n",customer.city);
-	   printf("    Old balance    :%.2f\n",customer.oldbalance);
-	   printf("    Current payment:%.2f\n",customer.payment);
-	   printf("    New balance    :%.2f\n",customer.newbalance);
-	   printf("    Payment date   :%d/%d/%d\n\n",customer.lastpayment.month,customer.lastpayment.day,customer.lastpayment.year);
-	   printf("    Account status :");
-	   textcolor(128+RED);
-	   switch(customer.acct_type)
-	      {
-	      case 'C':
-		 cprintf("CURRENT\n\n");
-		 break;
-	      case 'O':
-		 cprintf("OVERDUE\n\n");
-		 break;
-	      case 'D':
-		 cprintf("DELINQUENT\n\n");
-		 break;
-	      default:
-		 cprintf("ERROR\\n\n");
-	      }
-	      textcolor(WHITE);
-	      return;
-	   }
-
-
+    repeate1:
+        count=0;
+        printf("Enter product name : ");
+        fflush(stdin);
+        gets(temp_str);
+        for (int j = 0; j < 20; j++)
+        {
+            check = strcmp(temp_str, productName[j]);
+            if (check == 0)
+            {
+                strcpy(product_name[count1], temp_str);
+            }
+            else
+            {
+                count++;
+                if (count == 20)
+                {
+                    printf("Invalid product name\n");
+                    goto repeate1;
+                }
+            }
+        }
+    repeate2:
+        printf("Enter quantity : ");
+        scanf("%d", &product_quantity[count1]);
+        if (product_quantity[count1] < 1)
+        {
+            printf("Invalid quantity try again\n");
+            goto repeate2;
+        }
+        count1++;
+    repeate:
+        printf("If you have entered all product then Press 'Y' otherwise 'N' :");
+        fflush(stdin);
+        scanf("%c", &ch);
+        if (ch == 'Y' || ch == 'y')
+        {
+            calculate_bill();
+            exit(0);
+        }else if (ch=='N'||ch=='n')
+        {
+            printf("");
+        }        
+        else
+        {
+            printf("Invalid press try again\n");
+            goto repeate;
+        }
+    }
+    printf("\nWe have only 20 product\n\n");
+    calculate_bill();
+}
