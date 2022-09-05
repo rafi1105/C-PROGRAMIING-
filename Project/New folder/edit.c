@@ -8,7 +8,7 @@ int count1 = 0, total_bill = 0, total_bill1 = 0, discount;
 int sugar_p = 50, milk_p = 50, vegetable_masala_p = 50, wahing_powder_p = 100, salt_p = 20, poha_p = 50, oil_p = 200, tooth_paste_p = 40, hair_conditionar_p = 120, wheat_flour_p = 50, red_chilli_p = 40, maida_p = 45, coffee_p = 200, tea_p = 100, butter_p = 100, milk_powder_p = 150, turnmeric_powder_p = 200, hair_oil_p = 60, ghee_p = 300, face_powder_p = 70;
 void generate_bill()
 {
-    printf("\n\t    **** RK SUPER SHOP BILL ****\n");
+    printf("\n\t    **** AKSHAY GROCERY STORE BILL ****\n");
     printf("|--------------------------------------------------------\n");
     printf("|  Product\t\tQuantity\t\tPrice   |\n");
     printf("|--------------------------------------------------------\n");
@@ -246,8 +246,16 @@ void main()
 {
     char ch, temp_str[20];
     int check,count=0;
-    printf("\n\n   ***WELCOME TO RK SUPER SHOP ***\n\n");
-    printf(" 1.sugar\n 2.milk\n 3.vegetable masala\n 4.washing powder \n 5.oil\n 6.salt \n 7.poha\n 8.tooth paste\n 9.hair conditionar \n 10.wheat flour\n 11.red chilli\n 12.butter\n 13.moyda\n 14.coffee\n 15.tea\n 16.turmeric powder\n 17.ghee\n 18.face powder\n");
+    printf("\n\n   ***WELCOME TO AKSAHY GROCERY STORE***\n\n");
+    printf("   Here are our store discount rates\n");
+    printf("***************************************\n");
+    printf("| less than 5000 buy 0%% discount      |\n");
+    printf("|-------------------------------------|\n");
+    printf("| greater than 5000 buy 5%% discount   |\n");
+    printf("|-------------------------------------|\n");
+    printf("| greater than 10000 buy 10%% discount |\n");
+    printf("|-------------------------------------|\n");
+    printf("| greater than 15000 buy 15%% discount |\n");
     printf("***************************************\n\n");
     printf("Please enter all product bought by you\n");
     for (int i = 0; i < 20; i++)
