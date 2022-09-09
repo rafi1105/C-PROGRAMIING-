@@ -4,6 +4,7 @@
 char *productName[] = {"sugar", "milk", "vegetable masala", "washing powder", "salt", "polao", "oil", "tooth paste", "hair conditionar", "wheat flour", "red chilli", "moyda", "coffee", "tea", "butter", "milk powder", "turmeric powder", "hair oil", "ghee", "face powder"};
 char product_name[19][20];
 int product_quantity[19];
+int product_quantity[] = {10,10,10,10,10};
 int count1 = 0, total_bill = 0, total_bill1 = 0, discount;
 int sugar_p = 50, milk_p = 50, vegetable_masala_p = 50, wahing_powder_p = 100, salt_p = 20, polao_p = 50, oil_p = 200, tooth_paste_p = 40, hair_conditionar_p = 120, wheat_flour_p = 50, red_chilli_p = 40, moyda_p = 45, coffee_p = 200, tea_p = 100, butter_p = 100, milk_powder_p = 150, turnmeric_powder_p = 200, hair_oil_p = 60, ghee_p = 300, face_powder_p = 70;
 void generate_bill()
@@ -278,9 +279,11 @@ void main()
     repeate2:
         printf("Enter quantity : ");
         scanf("%d", &product_quantity[count1]);
-        if (product_quantity[count1] < 1)
+        if (product_quantity[count1] > 1 && product_quantity[count1]<10 )
         {
             printf("Invalid quantity try again\n");
+            
+           
             goto repeate2;
         }
         count1++;
