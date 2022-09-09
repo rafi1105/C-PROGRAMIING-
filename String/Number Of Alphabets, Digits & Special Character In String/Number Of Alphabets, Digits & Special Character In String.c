@@ -1,11 +1,8 @@
 #include <stdio.h>
-#include <string.h>
- 
 int main()
 {
-    char s[1000]; 
+    char s[20]; 
     int i,alphabets=0,digits=0,specialcharacters=0;
- 
     printf("Enter  the string : ");
     scanf("%[^\n]",s);
      
@@ -17,12 +14,9 @@ int main()
          digits++;
         else
          specialcharacters++;
-
  	} 
     printf("Alphabets = %d\n",alphabets);
     printf("Digits = %d\n",digits);
     printf("Special characters = %d", specialcharacters);
-    
-
     return 0;
 }

@@ -1,12 +1,12 @@
 #include <stdio.h >
 #include <stdlib.h >
 #include <string.h >
-char *productName[] = {"sugar", "milk", "vegetable masala", "washing powder", "salt", "potato", "oil", "tooth paste", "hair conditionar", "wheat flour", "red chilli", "maida", "coffee", "tea", "butter", "milk powder", "turmeric powder", "hair oil", "ghee", "face powder"};
+char *productName[] = {"sugar", "milk", "vegetable masala", "washing powder", "salt", "polao", "oil", "tooth paste", "hair conditionar", "wheat flour", "red chilli", "moyda", "coffee", "tea", "butter", "milk powder", "turmeric powder", "hair oil", "ghee", "face powder"};
 char product_name[19][20];
 int product_quantity[19];
 int product_quantity[] = {10,10,10,10,10};
 int count1 = 0, total_bill = 0, total_bill1 = 0, discount;
-int sugar_p = 50, milk_p = 50, vegetable_masala_p = 50, wahing_powder_p = 100, salt_p = 20, potato_p = 50, oil_p = 200, tooth_paste_p = 40, hair_conditionar_p = 120, wheat_flour_p = 50, red_chilli_p = 40, maida_p = 45, coffee_p = 200, tea_p = 100, butter_p = 100, milk_powder_p = 150, turnmeric_powder_p = 200, hair_oil_p = 60, ghee_p = 300, face_powder_p = 70;
+int sugar_p = 50, milk_p = 50, vegetable_masala_p = 50, wahing_powder_p = 100, salt_p = 20, polao_p = 50, oil_p = 200, tooth_paste_p = 40, hair_conditionar_p = 120, wheat_flour_p = 50, red_chilli_p = 40, moyda_p = 45, coffee_p = 200, tea_p = 100, butter_p = 100, milk_powder_p = 150, turnmeric_powder_p = 200, hair_oil_p = 60, ghee_p = 300, face_powder_p = 70;
 void generate_bill()
 {
     printf("\n\t    **** RK SUPER SHOP BILL ****\n");
@@ -40,9 +40,9 @@ void generate_bill()
             printf("|  %s            \t%dkg     \t\t%d  \n", product_name[i], product_quantity[i], salt_p*product_quantity[i]);
             printf("|--------------------------------------------------------\n");
         }
-        else if (!strcmp("potato", product_name[i]))
+        else if (!strcmp("polao", product_name[i]))
         {
-            printf("|  %s            \t%dkg    \t\t%d  \n", product_name[i], product_quantity[i], potato_p*product_quantity[i]);
+            printf("|  %s            \t%dkg    \t\t%d  \n", product_name[i], product_quantity[i], polao_p*product_quantity[i]);
             printf("|--------------------------------------------------------\n");
         }
         else if (!strcmp("oil", product_name[i]))
@@ -70,9 +70,9 @@ void generate_bill()
             printf("|  %s           \t%dpac      \t\t%d  \n", product_name[i], product_quantity[i], red_chilli_p*product_quantity[i]);
             printf("|--------------------------------------------------------\n");
         }
-        else if (!strcmp("maida", product_name[i]))
+        else if (!strcmp("moyda", product_name[i]))
         {
-            printf("|  %s                \t%dkg     \t\t%d  \n", product_name[i], product_quantity[i], maida_p*product_quantity[i]);
+            printf("|  %s                \t%dkg     \t\t%d  \n", product_name[i], product_quantity[i], moyda_p*product_quantity[i]);
             printf("|--------------------------------------------------------\n");
         }
         else if (!strcmp("coffee", product_name[i]))
@@ -148,9 +148,9 @@ void calculate_bill()
         {
             total_bill += salt_p * product_quantity[i];
         }
-        else if (!strcmp("potato", product_name[i]))
+        else if (!strcmp("polao", product_name[i]))
         {
-            total_bill += potato_p * product_quantity[i];
+            total_bill += polao_p * product_quantity[i];
         }
         else if (!strcmp("oil", product_name[i]))
         {
@@ -172,9 +172,9 @@ void calculate_bill()
         {
             total_bill += red_chilli_p * product_quantity[i];
         }
-        else if (!strcmp("maida", product_name[i]))
+        else if (!strcmp("moyda", product_name[i]))
         {
-            total_bill += maida_p * product_quantity[i];
+            total_bill += moyda_p * product_quantity[i];
         }
         else if (!strcmp("coffee", product_name[i]))
         {
@@ -248,7 +248,7 @@ void main()
     char ch, temp_str[20];
     int check,count=0;
     printf("\n\n   ***WELCOME TO RK SUPER SHOP ***\n\n");
-    printf(" 1.sugar\n 2.milk\n 3.vegetable masala\n 4.washing powder \n 5.oil\n 6.salt \n 7.potato\n 8.tooth paste\n 9.hair conditionar \n 10.wheat flour\n 11.red chilli\n 12.butter\n 13.moyda\n 14.coffee\n 15.tea\n 16.turmeric powder\n 17.ghee\n 18.face powder\n");
+    printf(" 1.sugar\n 2.milk\n 3.vegetable masala\n 4.washing powder \n 5.oil\n 6.salt \n 7.polao\n 8.tooth paste\n 9.hair conditionar \n 10.wheat flour\n 11.red chilli\n 12.butter\n 13.moyda\n 14.coffee\n 15.tea\n 16.turmeric powder\n 17.ghee\n 18.face powder\n");
     printf("***************************************\n\n");
     printf("Please enter all product bought by you\n");
     for (int i = 0; i < 20; i++)

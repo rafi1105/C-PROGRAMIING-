@@ -1,28 +1,18 @@
 #include <stdio.h>
-void main() 
+int main ()
 {
-   char str[100], sstr[100];
-   int pos, l, c = 0;
-   
-       printf("\n\nExtract a substring from a given string:\n");
-       printf("--------------------------------------------\n");  
- 
-       printf("Input the string : ");
-       scanf ("%[^\n]", str);
- 
-   printf("Input the position to start extraction :");
-   scanf("%d", &pos);
-   
-   printf("Input the length of substring :");
-   scanf("%d", &l);
- 
-   while (c < l) 
-   {
-      sstr[c] = str[pos+c-1];
-      c++;
-   }
-   sstr[c] = '\0';
- 
-   printf("The substring retrieve from the string is :  %s \n\n", sstr);
- 
+	char ch1[20],ch2[10];
+	int from,to,i=0,j=0;
+	scanf("%[^\n]",ch1);
+	printf(" index  start from \n");
+	scanf("%d",&from);
+	printf(" index end To \n");
+	scanf("%d",&to);
+	while ( from<=to){
+		ch2[j]=ch1[from-1];
+		j++;
+		from++;
+	}
+	ch2[j]='\0';
+	printf(" the extract substring %s\n",ch2);
 }

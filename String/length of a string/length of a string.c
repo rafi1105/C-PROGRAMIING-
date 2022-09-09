@@ -1,22 +1,15 @@
 #include <stdio.h>
-#include <string.h>
-
- 
 void main()
 {
     char str1[50];
-    int i, l = 1;
-
-       printf("\n\nFind the length of a string:\n ");
-       printf("-------------------------------------\n");
+    int i, l = 0;
  
     printf("Input a string : ");
     scanf("%s", str1);
- 
-    for (i = 1; str1[i] != '\0'; i++)
+    for (i = 0; str1[i] != '\0'; i++)
     {
         l++;
     }
-    printf("The string contains %d  number of characters. \n",l);
-    printf("So, the length of the string %s is : %d\n\n", str1, l);
+   printf(" the lenght is : %d\n",l);
 }
+
