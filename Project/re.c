@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include<string.h>
-#include<windows.h>
+
 int main()
 {
 	int b,z,i,a,s,g=0,bq,bill=0,arr[5],prr[5],b_ki_value[5];
@@ -184,23 +184,6 @@ int main()
 		}while(order=='y'||order=='Y');
 	}
 	printf("\t\tGenerating your BILL....");
-	for(i=1;i<=6;i++)
-	{
-	   printf("\b\b\b\b");
-	   if(i==1||i==3||i==5)
-	   printf("    ");
-	   if(i==2||i==4||i==6)
-	   {
-	   	printf(".");
-	   	Sleep(300);
-	   	printf(".");
-	   	Sleep(300);
-	   	printf(".");
-	   	Sleep(300);
-	   	printf(".");
-	   }
-	   Sleep(300);
-	}
 	printf("\n");
 	for(z=1;z<=60;z++)
 	{
