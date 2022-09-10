@@ -1,32 +1,33 @@
 #include <stdio.h>
-int main ()
+int main()
 {
-  int last,i=0,first,middle,j=0,l=0,temp;
-  char ch[20];
-  printf ("Enter the String : ");
-  scanf("%[^\n]",ch);
-  for (i=0;ch[i]!='\0';i++)
-  {
-    last++;
-    if ( ch[i] == ' ')
-    {
-        first =i-1;
-        middle=i+1;
-    }
-  }
-
-   for(i=0;i<(last-1)/2;i++)
-   {
-      ch[i]=temp;
-      ch[first]=ch[i];
-      ch[first--]=temp;
-    }
-  ch[i]='\0';
+  char str[1000], rev[1000];
+  int i, j, count = 0,K=0,a,k;
+  scanf("%[^\n]", str);
+  printf("\nString Before Reverse: %s", str);
+  //finding the length of the string
   
-    printf ("%d\n",first);
-    printf ("%d\n",middle);
-    printf ("%d\n",last);
-    printf("the  string is : %s", ch);
-   
-    return 0;
+  while (str[count] != ' ')
+  {
+    count++;
+  }
+  j = count - 1;
+  while (str[K] == ' ')
+  {
+    K++;
+  }
+  a = K - 1;
+  //reversing the string by swapping
+  for (i = 0; i < count; i++)
+  {
+    rev[i] = str[j];
+    j--;
+  }
+for (int k=4; str !='\0'; k++)
+  {
+    rev[k] = str[a];
+    a--;
+  }
+  rev[k]='\0';
+  printf("\nString After Reverse: %s", rev);
 }
