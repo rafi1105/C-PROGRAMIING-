@@ -1,20 +1,30 @@
 #include <stdio.h>
-int main ()
+#include <string.h>
+
+int main()
 {
-    int n,i,j;
-     char str [19][20];
-    char ch1[20],ch2[20],ch0[20],ch4[20],ch5[20];
-    scanf ("%d",&n);
+	//Declare Variables
+	char string[10][30]; //2D array for storing strings
+	int i, n;
 
-    for (i=0;i<=n;i++)
-    {
+	//Get the maximum number of strings
+	printf("Enter number of strings to input\n");
+	scanf("%d", &n);
 
-        scanf ("%s", str[i]);
+	//Read the string from user
+	printf("Enter Strings one by one: \n");
+	for(i=0; i< n ; i++) {
+		scanf("%s",string[i]);
+	}
 
-    }
-       for (i=0;i<=n;i++)
-    {
-          printf (" enter the string (%d) : ",str[i]);
-    }
+	//Print the length of each string
+	printf("The length of each string: \n");
+	for(i=0; i< n ; i++) {
+		//Print the string at current index
+		printf("%s  ", string[i]);
+
+		//Print the length using `strlen` function
+		printf("%d\n", strlen(string[i]));
+	}
 
 }

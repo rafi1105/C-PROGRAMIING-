@@ -3,7 +3,7 @@ int main ()
 {
     int t1,t2,time=3,t3,t;
     float rate,time1;
- printf("Enter the temperature then the pizza is removed from an oven\n");
+ printf("Enter the temperature then the cake is removed from an oven\n");
  scanf("%d",&t1);
  t2=150;
  rate=(float)(t1-t2)/time;
@@ -12,5 +12,5 @@ int main ()
  scanf("%d",&t3);
  t=t2-t3;
  time1= (t/rate);
-printf (" After %.2f min  the pizza temperature and the room temperature equal",time1);
+printf (" After %.2f min  the cake temperature and the room temperature equal",time1);
 }

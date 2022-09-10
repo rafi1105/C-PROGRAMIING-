@@ -1,0 +1,1 @@
+printf("the amount of sugar in 2 hours is : %f gm\n",e);
