@@ -1,30 +1,44 @@
 #include <stdio.h>
 #include <string.h>
-
+void calling (int larger,int x)
+{
+	int i;
+	for (i=0;i<larger-x;i++)
+	printf(" ");
+}
 int main()
 {
-	//Declare Variables
-	char string[10][30]; //2D array for storing strings
-	int i, n;
-
-	//Get the maximum number of strings
+	
+	char string[10][30]; 
+	int i, n,larger,x,y,z;
 	printf("Enter number of strings to input\n");
 	scanf("%d", &n);
-
-	//Read the string from user
 	printf("Enter Strings one by one: \n");
 	for(i=0; i< n ; i++) {
 		scanf("%s",string[i]);
 	}
-
-	//Print the length of each string
-	printf("The length of each string: \n");
-	for(i=0; i< n ; i++) {
-		//Print the string at current index
-		printf("%s  ", string[i]);
-
-		//Print the length using `strlen` function
-		printf("%d\n", strlen(string[i]));
+larger=0;
+	for(i=0; i< n ; i++) 
+	{
+		
+		if (larger<strlen(string[i]))
+		{
+			larger=strlen(string[i]);
+		}
 	}
-
+	for(i=0; i< n ; i++) 
+	{
+		if (i==0)
+		x=strlen(string[i]);
+		else if (i==1)
+		y=strlen(string[i]);
+		else if (i==2)
+		z=strlen(string[i]);
+	}
+ calling (larger,x);
+printf("%s\n",string[0]);
+ calling (larger,y);
+printf("%s\n",string[1]);
+ calling (larger,z);
+printf("%s\n",string[2]);
 }

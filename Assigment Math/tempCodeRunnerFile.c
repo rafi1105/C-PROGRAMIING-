@@ -1,1 +1,1 @@
-printf("the amount of sugar in 2 hours is : %f gm\n",e);
+printf ("After %.1f years the population is : %lf\t \n", year,b);

@@ -20,6 +20,6 @@ time=t1*60;
 c=exp(-k*time);
 printf("%lf\n",c);
 e=(float)(M-(M*c));
-printf("the amount of mango juice in 2 hours is : %f gm\n",e);
+printf("the amount of mango juice in 1 hours is : %f gm\n",e);
 return 0;
 }
