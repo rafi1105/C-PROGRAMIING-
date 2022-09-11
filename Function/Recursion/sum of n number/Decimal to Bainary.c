@@ -1,10 +1,10 @@
 #include <stdio.h>
 int convert(int n);
 void main() {
-    int no;
+    int number;
     printf("enter the decimal number :");
-    scanf("%d", &no); // input the decimal number
-    printf("decimal (%d) = bainary (%d) \n",no,convert(no));
+    scanf("%d", &number); 
+    printf("decimal (%d) = bainary (%d) \n",number,convert(number));
 }
 int convert(int n) {
     if (n ==0)

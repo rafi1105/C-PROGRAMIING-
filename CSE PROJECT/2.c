@@ -13,7 +13,7 @@ int main()
     char ch[20];
 
     printf("Enter The String: ");
-    gets(ch);
+     scanf("%[^\n]", ch);
 
     printf("Length of the string = %d",abc(ch));
     return 0;
