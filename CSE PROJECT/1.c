@@ -1,42 +1,31 @@
 #include <stdio.h>
-int main ()
+#include <string.h>
+void reverse_words(char *w);
+int main()
 {
-  int last=0,i,first=0,middle=0;
-  char ch[20],ch1[20];
-  printf ("Enter the String : ");
-  scanf("%[^\n]",ch);
-  for (i=0;ch[i]!='\0';i++)
-  {
-    last++;
-    if ( ch[i] == ' ')
-    {
-        first =i-1;
-        middle=i+1;
-    }
-  }
-    for (int j=0; ch1[j]<=last;j++)
-    {
-        if(i==first){
-             ch[first]=ch1[0];
-        }
-        else if (i==0)
-       {
-
-           ch[0]=ch1[first];
-       }
-        else if (i==last)
-        {
-            ch[last]=ch1[middle];
-        }
-       else if (i==middle)
-       {
-            ch[middle]=ch1[last];
-       }
-       else {}
-       ch[j]=ch1[j];
-    }
-    ch1[last+1]='\0';
-    printf("the  string is : %s", ch1);
-
+    char w[100];
+    printf("Enter String  ");
+    gets(w);
+    reverse_words(w);
+    printf(" %s\n ", w);
     return 0;
+}
+void reverse_words(char *w)
+{
+    int len = strlen(w);
+    int i = 0, j = 0;
+    char temp[100];
+    for (i = 0; i < len; i++) {
+        for (j = 0; i < len; j++, i++)
+        {
+            if (w[i] == ' ' || w[i] == '.')
+                break;
+            temp[j] = w[i];
+        }
+        while (j > 0)
+        {
+            j--;
+            w[i - j - 1] = temp[j];
+    }
+}
 }

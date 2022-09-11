@@ -18,8 +18,4 @@ scanf ("%lf",&year);
 a=k*year;
 b=population*exp (a);
 printf ("After %.1f years the population is : %lf\t \n", year,b);
-
-
 }
-
-

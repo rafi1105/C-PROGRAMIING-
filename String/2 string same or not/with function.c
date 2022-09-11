@@ -1,15 +1,18 @@
 #include <stdio.h>
+#include <conio.h>
 #include <string.h>
-int main()
-{
-    char ch1[20],ch2[20];
-    int n;
-    scanf("%[^\n] %[^\n]", ch1, ch2);
-    n=strcmp(ch1, ch2);
-    if (n==0)
-    
-        printf("2 string are same");
-    else 
-        printf("2 string are not same");
-return 0;
+void main(){
+   char string[20],temp;
+   int i,length;
+   printf("Enter String : ");
+   scanf("%[^\n]",string);
+   length=strlen(string)-1;
+   for(i=0;i<strlen(string)/2 &&string!=' ';i++)
+   {
+      temp=string[i];
+      string[i]=string[length];
+      string[length--]=temp;
+   }
+   printf("\nReverse string :%s",string);
+   getch();
 }

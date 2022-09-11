@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-void calling (int larger,int x)
-{
-	int i;
-	for (i=0;i<larger-x;i++)
-	printf(" ");
-}
+void calling(int larger,int x);
 int main()
 {
 	
@@ -35,10 +30,16 @@ larger=0;
 		else if (i==2)
 		z=strlen(string[i]);
 	}
- calling (larger,x);
+calling (larger,x);
 printf("%s\n",string[0]);
  calling (larger,y);
 printf("%s\n",string[1]);
  calling (larger,z);
 printf("%s\n",string[2]);
+}
+void calling(int larger,int x)
+{
+	int i;
+	for (i=0;i<larger-x;i++)
+	printf(" ");
 }
