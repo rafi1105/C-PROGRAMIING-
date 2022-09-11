@@ -1,33 +1,31 @@
 #include <stdio.h>
+#include <string.h>
+void reverse_words(char *w);
 int main()
 {
-  char str[1000], rev[1000];
-  int i, j, count = 0,K=0,a,k;
-  scanf("%[^\n]", str);
-  printf("\nString Before Reverse: %s", str);
-  //finding the length of the string
-  
-  while (str[count] != ' ')
-  {
-    count++;
-  }
-  j = count - 1;
-  while (str[K] == ' ')
-  {
-    K++;
-  }
-  a = K - 1;
-  //reversing the string by swapping
-  for (i = 0; i < count; i++)
-  {
-    rev[i] = str[j];
-    j--;
-  }
-for (int k=4; str !='\0'; k++)
-  {
-    rev[k] = str[a];
-    a--;
-  }
-  rev[k]='\0';
-  printf("\nString After Reverse: %s", rev);
+    char w[100];
+    printf("Enter String  ");
+    gets(w);
+    reverse_words(w);
+    printf(" %s\n ", w);
+    return 0;
+}
+void reverse_words(char *w)
+{
+    int len = strlen(w);
+    int i = 0, j = 0;
+    char temp[100];
+    for (i = 0; i < len; i++) {
+        for (j = 0; i < len; j++, i++)
+        {
+            if (w[i] == ' ' || w[i] == '.')
+                break;
+            temp[j] = w[i];
+        }
+        while (j > 0)
+        {
+            j--;
+            w[i - j - 1] = temp[j];
+    }
+}
 }
