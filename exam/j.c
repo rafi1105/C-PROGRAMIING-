@@ -7,15 +7,15 @@ int main ()
   // abc ghy kio
   for (i=0; ch[i]='\0'; i++)
   {
-    if (ch[i] == ' ')
+    if (i==0)
     {
     j=0;
-    ch1[j]=ch[i];
+    ch1[j]=ch[i+1];
     j++;
     }
   }
   ch1[j]='\0';
-  printf("
+  printf("%s", ch1);
   
   
     return 0;
