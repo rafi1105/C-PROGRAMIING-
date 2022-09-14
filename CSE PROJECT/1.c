@@ -1,31 +1,32 @@
 #include <stdio.h>
-#include <string.h>
-void reverse_words(char *w);
+void reverse(char *ch1);
 int main()
 {
-    char w[100];
+    char ch1[100];
     printf("Enter String  ");
-    gets(w);
-    reverse_words(w);
-    printf(" %s\n ", w);
+    scanf("%[^\n]", ch1);
+    reverse(ch1);
+    printf(" %s\n ", ch1);
     return 0;
 }
-void reverse_words(char *w)
+void reverse(char *ch1)
 {
-    int len = strlen(w);
+    int l = 0;
     int i = 0, j = 0;
+   for(i = 0; ch1[i]!='\0'; i++)
+   l++;
     char temp[100];
-    for (i = 0; i < len; i++) {
-        for (j = 0; i < len; j++, i++)
+    for (i = 0; i < l; i++) {
+        for (j = 0; i < l; j++, i++)
         {
-            if (w[i] == ' ' || w[i] == '.')
+            if (ch1[i] == ' ')
                 break;
-            temp[j] = w[i];
+            temp[j] = ch1[i];
         }
         while (j > 0)
         {
             j--;
-            w[i - j - 1] = temp[j];
-    }
+            ch1[i - j - 1] = temp[j];
+        }
 }
 }

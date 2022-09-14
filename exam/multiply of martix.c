@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
-   int a[3][3],b[3][3],sum[3][3],j,i,r,c;
+   int a[3][3],b[3][3],m[3][3],j,i,r,c;
    printf("enter the number row:");
    scanf("%d",&r);
    printf("enter the number column:");
@@ -23,12 +23,12 @@ int main()
     for(i=0;i<r;i++)
    for(j=0;j<c;j++)
    {
-      sum[i][j] =a[i][j]+b[i][j];
+      m[i][j] =a[i][j]*b[i][j];
    }
     for(i=0;i<r;i++){
    for(j=0;j<c;j++)
    {
-      printf("\t%d\t",sum[i][j]);
+      printf("\t%d\t",m[i][j]);
    }
    printf("\n");
 }

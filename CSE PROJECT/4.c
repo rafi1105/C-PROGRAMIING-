@@ -1,7 +1,7 @@
 #include<stdio.h>
 int Input_Number();
-char character_extractor(char ch);
-void password_generator(char password[5], int i, char ex);
+char character1(char ch);
+void p_generator(char password[5], int i, char ex);
 
 int main()
 {
@@ -11,15 +11,15 @@ int main()
     printf("Wrong Input");
     else
     {
-        char sNum[5], password[5];
+        char number[5], password[5];
         char extracted;
-        sprintf(sNum, "%d", num);
+        printf(number, "%d", num);
         for(i=0; i<5; i++)
         {
-            extracted = character_extractor(sNum[i]);
-            password_generator(password,i,extracted);
+            extracted = character1(number[i]);
+            p_generator(password,i,extracted);
         }
-        printf("Password is %s", password);
+        printf(" Encypted Password is %s", password);
     }
     return 0;
 }
@@ -34,7 +34,7 @@ int Input_Number()
     else return 0;
 }
 
-char character_extractor(char ch)
+char character1(char ch)
 {
     switch(ch)
     {
@@ -80,7 +80,7 @@ char character_extractor(char ch)
     }
 }
 
-void password_generator(char password[5], int i, char ex)
+void p_generator(char password[5], int i, char ex)
 {
     password[i]=ex;
 }
