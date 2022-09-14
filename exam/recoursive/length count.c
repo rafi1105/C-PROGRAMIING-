@@ -10,9 +10,11 @@ int main ()
     printf("%d\n",l);
     return 0;
 }
-int abc(char [] , int i)
+int abc(char str[] , int i)
 {
+   int l;
     if (str[i]=='\0')
     return i;
-    return abc(str,i+1);
+l=abc(str,i+1);
+    return l;
 }

@@ -1,22 +1,20 @@
 #include <stdio.h>
-int main() {
-   int n = 5;
-   int i;
-	
-  
-   printf("Fibbonacci of %d: " , n);
-	
-   for(i = 0;i<n;i++) {
-      printf("%d ",fibbonacci(i));            
-   }
-}
-int fibbonacci(int n) {
-   if(n == 0){
-      return 0;
-   } else if(n == 1) {
-      return 1;
-   } else {
-      return (fibbonacci(n-1) + fibbonacci(n-2));
-   }
-}
 
+int abc(char str[] , int i);
+int main ()
+{
+    char str[100];
+    int l=0;
+    scanf("%[^\n]",str);
+    l=abc(str,0);
+    printf("%d\n",l);
+    return 0;
+}
+int abc(char str[] , int i)
+{
+   int l;
+    if (str[i]=='\0')
+    return i;
+l=abc(str,i++);
+    return l;
+}
