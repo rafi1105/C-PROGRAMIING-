@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 int main()
 {
 char s1[200];
@@ -13,6 +12,6 @@ char s1[200];
    {
        s1[i] -= 7;
    }
-   printf("Decoded Text: %s", s1);
+   printf("Decoded Text: %s\n", s1);
    return 0;
 }
