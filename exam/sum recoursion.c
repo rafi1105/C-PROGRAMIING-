@@ -1,18 +1,18 @@
 #include <stdio.h>
-int fact (int n);
+int sum (int n);
 int main()
 {
     int n,f;
     scanf("%d",&n);
-    f=fact(n);
+    f=sum(n);
     printf("%d\n",f);
     return 0;
 }
-int fact (int n)
+int sum (int n)
 {
     int f;
     if (n==0)
-    return 1;
-    f=n*fact(n-1);
+    return 0;
+    f=n+sum(n-1);
     return f;
 }
