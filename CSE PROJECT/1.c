@@ -1,4 +1,4 @@
-#include <stdio.h>n
+#include <stdio.h>
 void reverse(char *ch1);
 int main()
 {
@@ -19,14 +19,14 @@ void reverse(char *ch1)
     for (i = 0; i < l; i++) {
         for (j = 0; i < l; j++, i++)
         {
-            if (ch1[i] == ' ' || ch1[i] == '.')
+            if (ch1[i] == ' ')
                 break;
             temp[j] = ch1[i];
         }
-        ch1hile (j > 0)
+        while (j > 0)
         {
             j--;
             ch1[i - j - 1] = temp[j];
-    }
+        }
 }
 }

@@ -1,1 +1,1 @@
-product_quantity[19];
+char product_name[19][20]

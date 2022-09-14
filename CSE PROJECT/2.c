@@ -1,20 +1,18 @@
 #include <stdio.h>
 
-int abc(char ch[])
+int abc(char str[] , int i);
+int main ()
 {
-    if(ch[0]=='\0')
-    {
-        return 0;
-    }
-    return 1 + abc(ch + 1);
-}
-int main()
-{
-    char ch[20];
-
-    printf("Enter The String: ");
-     scanf("%[^\n]", ch);
-
-    printf("Length of the string = %d",abc(ch));
+    char str[100];
+    int l=0;
+    scanf("%[^\n]",str);
+    l=abc(str,0);
+    printf("%d\n",l);
     return 0;
+}
+int abc(char [] , int i)
+{
+    if (str[i]=='\0')
+    return i;
+    return abc(str,i+1);
 }
