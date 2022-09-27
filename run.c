@@ -1,20 +1,25 @@
 #include <stdio.h>
+#include <stdlib.h>
+void main()
+{
+ int fno,sno,*ptr1=&fno,*ptr2=&sno;
+ 
+   printf("\n\n Pointer : Find the maximum number between two numbers :\n"); 
+   printf("------------------------------------------------------------\n");   
+ 
+   printf(" Input the first number : ");
+   scanf("%d", ptr1);
+   printf(" Input the second  number : ");
+   scanf("%d", ptr2); 
 
-int abc(char str[] , int i);
-int main ()
-{
-    char str[100];
-    int l=0;
-    scanf("%[^\n]",str);
-    l=abc(str,0);
-    printf("%d\n",l);
-    return 0;
-}
-int abc(char str[] , int i)
-{
-   int l;
-    if (str[i]=='\0')
-    return i;
-l=abc(str,i++);
-    return l;
+
+ if(*ptr1>*ptr2)
+ {
+  printf("\n\n %d is the maximum number.\n\n",fno);
+ }
+ else
+ {
+  printf("\n\n %d is the maximum number.\n\n",sno);
+ }
+
 }
