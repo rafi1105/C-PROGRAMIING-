@@ -15,5 +15,5 @@ int main ()
    {
     printf (" Now element are :%d\n",a[i]);
    }
-   printf("afsd %d\n",a[1]);
+  
 }
