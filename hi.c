@@ -1,7 +1,1 @@
-#include <stdio.h>
-int main()
-{
-    printf("hi");
-
-return 0;
-}
+c.jeson
