@@ -1,48 +1,71 @@
-#include<stdio.h>
- 
-int linearSearch(int arr[], int size, int element){
-    for (int i = 0; i < size; i++)
+#include <stdio.h>
+int binarySearch (int a[], int num, int element)
+{
+    int low=0,high=num-1,mid;
+    mid = (high+low)/2;
+        while ( low <= high )
+        {
+            mid = (high+low)/2;
+            if (a[mid] < element)
+            {
+                low = mid + 1;
+            }
+            else if ( a[mid] > element)
+            {
+                high = mid -1;
+            }
+            if  ( a[mid] == element){
+                return (mid+1) ;
+            }
+        }
+        return -1;
+}
+int linearSearch ( int a[], int num , int element )
+{
+    int i;
+    for ( i = 0; i < num; i++ )
+    if ( a[i] == element )
     {
-        if(arr[i]==element){
-            return i;
-        }
+        return (i+1);
     }
-    return -1;
+   return -1;
 }
- 
-int binarySearch(int arr[], int size, int element){
-    int low, mid, high;
-    low = 0;
-    high = size-1;
-    // Keep searching until low <= high
-    while(low<=high){
-        mid = (low + high)/2;
-        if(arr[mid] == element){
-            return mid;
-        }
-        if(arr[mid]<element){
-            low = mid+1;
-        }
-        else{
-            high = mid -1;
-        }
-    } 
-    return -1;
-    
-}
- 
-int main(){
-    int arr[50] ;
-    int size,element;
-    printf("enter the number of array size");
-    printf("\n");
-    scanf("%d",&size);
-    printf(" enter the element of array \n");
-    for (int i = 0; i < size; i++)
-    scanf (" %d",&arr[i]);
-    printf("enter the element \n");
+int main ()
+{
+    int num,x=0,i,a[20],element, searchIndex;
+    printf("Enter the element number : ");
+    scanf("%d",&num);
+    printf("please enter the array number : \n");
+    for (i=0; i<num; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    printf("enter the element value : \n");
     scanf("%d",&element);
-    int searchIndex = binarySearch(arr, size, element);
-    printf("The element %d was found at index %d \n", element, searchIndex);
-    return 0;
+        for (i=0; i<num; i++)
+        {
+            
+            if (a[i]>a[i+1]) // not sorted yet
+            {
+                x++;
+                
+            }
+        }
+   
+   if (x>0)
+    {
+        int searchIndex= linearSearch( a, num, element);
+        printf("we found %d elements in index %d\n", element,searchIndex);
+        return 0;
+    } 
+    if (x==0)
+    {
+         searchIndex= binarySearch( a, num, element);
+        printf("we found %d elements in index %d\n", element,searchIndex);
+        return 0;
+    }
+   if ( searchIndex == -1)
+    {
+        printf(" %d value is not available in this array ", element);
+    } 
 }
