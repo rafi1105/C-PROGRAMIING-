@@ -43,5 +43,7 @@ int main ()
 void add_info(st)
 {
     int i;
-    
+    printf("add the information \n");
+    printf(" enter the name : ");
+    scanf ("%d",&st.name);
 }
