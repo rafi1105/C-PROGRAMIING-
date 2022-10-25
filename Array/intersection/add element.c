@@ -5,13 +5,14 @@ int main()
     printf ("enter the number of elements: ");
     scanf("%d",&n); 
     // input array
+    printf ("enter the elements :\n");
     for(i=0;i<n;i++)
     {
         scanf (" %d",&a[i]);
     }
     printf ("Enter the possition you want to add :");
     scanf("%d",&p); //3
-    printf("what is the value");
+    printf("what is the value : \n");
     scanf("%d",&cp); //6
     for(i=n;i>p-1;i--)
     {
@@ -19,7 +20,7 @@ int main()
        
     }
      a[p-1]=cp;
-     printf("new array is :");
+     printf("new array is :\n");
     for(i=0;i<n+1;i++)
     
     printf ("%d\n",a[i]);
