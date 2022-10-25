@@ -32,11 +32,6 @@ int binarySearch(int arr[], int size, int element){
 }
  
 int main(){
-    // Unsorted array for linear search
-    // int arr[] = {1,3,5,56,4,3,23,5,4,54634,56,34};
-    // int size = sizeof(arr)/sizeof(int);
- 
-    // Sorted array for binary search
     int arr[50] ;
     int size,element;
     printf("enter the number of array size");

@@ -2,16 +2,21 @@
 int main ( )
 {
 
-    int arr [ ] = { 12 , 2 , 5 , 3 , 10 } ;
-    int i,j,size = 5 ;
-   
-        for ( j = 0 ; j < size - 1 ; j ++ )
+    int arr [50];
+    int i,j,size;
+    scanf (" %d",&size);
+    for (i=0;i<size;i++)
+    {
+        scanf ("%d",&arr[i]);
+    }
+   for (i=0;i<size;i++)
+        for (j=0;j<size;j++)
         {
-            if ( arr [ j ] > arr [ j + 1 ] )
+            if (arr[j] > arr[j+1])
                 {
                 // swap two numbers
                 int temp = arr [ j ] ;
-                arr [ j ] = arr [ j + 1 ] ;
+                arr [j] = arr [j+1] ;
                 arr [ j + 1 ] = temp ;
                 }
         }
