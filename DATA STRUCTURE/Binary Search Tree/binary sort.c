@@ -15,24 +15,14 @@ int binarySearch (int a[], int num, int element)
                 high = mid -1;
             }
             if  ( a[mid] == element){
-                return (mid+1) ;
+                return (a[mid]) ;
             }
         }
         return -1;
 }
-/*int linearSearch ( int a[], int num , int element )
-{
-    int i;
-    for ( i = 0; i < num; i++ )
-    if ( a[i] == element )
-    {
-        return (i+1);
-    }
-   return -1;
-} */
 int main ()
 {
-    int num,x=0,i,a[20],element, searchIndex;
+    int num,x=0,i,a[20],element, searchIndex,temp,j,data[20],found;
     printf("Enter the element number : ");
     scanf("%d",&num);
     printf("please enter the array number : \n");
@@ -40,6 +30,9 @@ int main ()
     {
         scanf("%d",&a[i]);
     }
+    // copy the data  array
+    for (i=0; i<num; i++)
+    data[i]=a[i];
     printf("enter the element value : \n");
     scanf("%d",&element);
         for (i=0; i<num; i++)
@@ -51,21 +44,33 @@ int main ()
                 
             }
         }
-   
+   printf ("%d is x \n",x);
    if (x>0)
     {
-        int searchIndex= linearSearch( a, num, element);
-        printf("we found %d elements in index %d\n", element,searchIndex);
+        printf  ( " array  not is  sorted\n");
+        for ( i =0; i<num ;i++)
+        {
+        for ( j=0; j<num-1 ; j++)
+        {
+        if (a[j]>a[j+1])
+        {
+        temp=a[j];
+        a[j]=a[j+1];
+        a[j+1]=temp;
+        }
+        }
+        }
+        printf(" after sorting : \n");
+        for ( i =0 ; i< num ; i++)
+        printf(" %d ", a[i]);
+        searchIndex= binarySearch( a, num, element);
+            for ( i=0 ; i< num ; i++)
+            if ( searchIndex == data[i])
+            found=i+1;
+
+        printf("\n we found %d elements in index %d\n", element,found);
         return 0;
     } 
-    if (x==0)
-    {
-         searchIndex= binarySearch( a, num, element);
-        printf("we found %d elements in index %d\n", element,searchIndex);
-        return 0;
-    }
-   if ( searchIndex == -1)
-    {
-        printf(" %d value is not available in this array ", element);
-    } 
+   
+  
 }
