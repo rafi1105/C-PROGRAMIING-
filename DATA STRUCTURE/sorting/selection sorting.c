@@ -19,30 +19,38 @@ int firstNumber ( int array [], int size){
     int select;
     select=array[0];
 }
-int sortArray (int array[],int size ,int select)
+ /* int sortArray (int array[],int size ,int select)
 {
     int i,up,temp,n;
-    n=size;
-
-    while ( size != 1){ // 8 0 9
-        select=array[0]; // select = 8
-    for ( int i=1; i < size ; i++ ) // 1<2
+    n=size; // n=4
+                        // 0 1 2 3
+    while ( size != 1)
+{ 
+        // 5 5 4 6
+        select=array[0]; // select = 5
+             up=0;
+    for ( int i=1; i < size ; i++ ) //  1<3
     {
-        if ( select < array[i] ) // 8<0
+        if ( select < array[i] ) // 5<6
         {
-            select = array[i]; // select = 8
-            up=i; //up =0
+            select = array[i]; // select = 6
+            up=i; //up =1
         }
-        else {
-            up=0;
-        }
+        else if ( select == array[i] ) //
+        
+            {
+             select = array[i];
+             up=i; // up= 
+            }
+        
     }
-printf (" \n %d largest number in %d index \n", select,up);
-    temp=array[size-1]; // temp = 0
-    array[size-1]=select; // array[1]=8
-    array[up]=temp; // array[0]= 0
-    size--; // size = 1
-    }
+}
+printf (" \n %d largest number in %d index \n", select,up); // 5 5 4 6
+    temp=array[size-1]; // temp = 5
+    array[size-1]=select; // array[3]=6
+    array[up]=temp; // array[1]= 5
+    size--; // size = 3
+    
     printf ("\n new array is.... \n");
     for ( int i=0; i < n; i++ )
     {
@@ -50,7 +58,7 @@ printf (" \n %d largest number in %d index \n", select,up);
 printf (" %d ",array[i]);
     } 
 
-}
+} */
 int main ()
 {
     int array[30],size,select;
@@ -58,8 +66,8 @@ int main ()
     scanf ("%d", &size);
    InputArray ( array , size);
    select=firstNumber ( array, size);
-   sortArray (array, size , select);
- // printArray ( array,size);
+    // sortArray (array, size , select);
+  printArray ( array,size);
 
     return 0;
 
