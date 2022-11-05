@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include<stdio.h>
 int printArray ( int array[], int size )
 {
     printf (" the array is.... \n");
