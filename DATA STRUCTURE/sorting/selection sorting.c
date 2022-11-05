@@ -32,7 +32,7 @@ int sortArray (int array[],int size ,int select)
         if ( select < array[i] ) // 8<0
         {
             select = array[i]; // select = 8
-            up=i; //up =0
+            up=i; //up =
         }
         else if (select == array[i] ) //
         {
