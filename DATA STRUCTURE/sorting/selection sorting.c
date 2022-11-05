@@ -26,6 +26,7 @@ int sortArray (int array[],int size ,int select)
 
     while ( size != 1){ // 8 0 9
         select=array[0]; // select = 8
+        up=0;
     for ( int i=1; i < size ; i++ ) // 1<2
     {
         if ( select < array[i] ) // 8<0
@@ -33,9 +34,13 @@ int sortArray (int array[],int size ,int select)
             select = array[i]; // select = 8
             up=i; //up =0
         }
-        else if {
-            up=0;
+        else if (select == array[i] ) //
+        {
+            select = array[i]; // select =
+            up=i;
         }
+            
+        
     }
 printf (" \n %d largest number in %d index \n", select,up);
     temp=array[size-1]; // temp = 0
