@@ -33,7 +33,7 @@ int sortArray (int array[],int size ,int select)
             select = array[i]; // select = 8
             up=i; //up =0
         }
-        else {
+        else if {
             up=0;
         }
     }
