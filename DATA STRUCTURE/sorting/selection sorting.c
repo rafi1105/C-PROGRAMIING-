@@ -43,18 +43,13 @@ int sortArray (int array[],int size ,int select)
         
     }
 printf (" \n %d largest number in %d index \n", select,up);
+// swap the numbers
     temp=array[size-1]; // temp = 0
     array[size-1]=select; // array[1]=8
     array[up]=temp; // array[0]= 0
     size--; // size = 1
     }
-    printf ("\n new array is.... \n");
-    for ( int i=0; i < n; i++ )
-    {
-
-printf (" %d ",array[i]);
-    } 
-
+    printArray (array, n);
 }
 int main ()
 {
