@@ -23,20 +23,15 @@ int InputArray ( int array [], int size)
             }
         }
     }
-printf (" the array is.... \n");
-    for ( int i=0; i<size; i++ )
-    {
-        printf ("%d ", array[i]);
-    }
  }
-/* int printArray ( int array[], int size )
+ int printArray ( int array[], int size )
 {
     printf (" the array is.... \n");
     for ( int i=0; i<size; i++ )
     {
         printf ("%d ", array[i]);
     }
-} */
+} 
 int main ()
 {
     int array[30],size;
@@ -44,7 +39,7 @@ int main ()
     scanf ("%d", &size);
    InputArray ( array , size);
    Insertion(array,size);
-  // printArray ( array,size);
+   printArray ( array,size);
     return 0;
 
 }
