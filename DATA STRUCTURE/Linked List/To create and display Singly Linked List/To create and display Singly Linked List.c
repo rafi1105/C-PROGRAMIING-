@@ -37,11 +37,11 @@ void createNodeList(int n)
     {
 // reads data for the node through keyboard
 
-        printf(" Input data for node 1 : ");
+       printf(" Input data for node 1 : ");
         scanf("%d", &num);
         stnode->num = num;      
         stnode->nextptr = NULL; // links the address field to NULL
-        tmp = stnode;
+        tmp = stnode; 
 // Creating n nodes and adding to linked list
         for(i=2; i<=n; i++)
         {
