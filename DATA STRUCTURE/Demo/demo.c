@@ -7,7 +7,7 @@ int printArray ( int array[], int size )
         printf ("%d ", array[i]);
     }
 }
-int InputArray ( int array [], int size)
+int InputArray ( int array [], in size)
 {
     printf (" please input the array .......\n");
     for ( int i=0; i<size; i++ )
