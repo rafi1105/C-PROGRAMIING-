@@ -20,9 +20,9 @@ void printLinkedlist(struct node *p) {
 int main() {
   // Initialize nodes
   struct node *head;
-  struct node *one = NULL;
-  struct node *two = NULL;
-  struct node *three = NULL;
+  struct node *one;
+  struct node *two;
+  struct node *three;
 
   // Allocate memory
   one = malloc(sizeof(struct node));

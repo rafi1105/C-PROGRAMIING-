@@ -1,35 +1,32 @@
-#include<stdio.h>
-#include<stdlib.h> 
+#include <stdio.h>
+#include <stdlib.h>
 
-struct Node 
-{
+struct node{
     int data;
-    struct Node *next;
+    struct node*next;
 };
-void traverse ( struct Node*ptr)
-{
-    while ( ptr != NULL )
-    {
-        printf (" element -> %d\n", ptr->data );
-        ptr = ptr-> next;
-    }
-}
 int main ()
-{ 
-    struct Node *head;
-    struct Node *second;
-    struct Node *third;
+{
+    struct node * head,*temp;
+    struct node * fnode;
+    int n;
+    scanf ("%d",&n);
+    head = NULL;
+     for ( int i=0; i < n; i++ )
+    fnode =(struct Node*) malloc (sizeof(struct node));
+    printf ( " enter the number of data nodes\n" );
+    scanf("%d", & fnode -> data );
+    fnode -> next = NULL;
+    if ( head == NULL )
+    head=temp= fnode;
+    else 
+      
+        {
+        temp -> next = fnode;
+        temp= fnode;
+        }
 
-    head= (struct Node*) malloc (sizeof (struct Node));
-    second = (struct Node*) malloc (sizeof (struct Node));
-    third= ( struct Node*) malloc (sizeof (struct Node));
+        
 
-    head -> data = 45;
-    head -> next= second;
-    second -> data =54;
-    second -> next = third;
-    third -> data =43;
-    third -> next =NULL;
+    }
 
-    traverse (head);
-}
