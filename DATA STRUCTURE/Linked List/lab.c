@@ -7,7 +7,46 @@
     struct Node *next;
  } *head = NULL;
 
-
+void insertAtBeginning (int value)
+{
+    struct Node * newNode = ( struct Node *) malloc (sizeof (struct Node));
+    newNode->data = value;
+    if (head == NULL)
+    {
+        newNode->next = NULL;
+        head = newNode;
+    }
+    else 
+    {
+        newNode->next = head;
+        head = newNode;
+    }
+}
+ void insertAtEnd (value)
+ {
+    struct Node *temp;
+    struct Node *newNode = ( struct Node*) malloc (sizeof(struct Node));
+    newNode->next = value;
+    if (head == NULL)
+    {
+        newNode->next = NULL;
+        head = newNode;
+    }
+    else 
+    {
+        temp =head;
+        while ( temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+            temp -> next = newNode;
+            newNode->next = NULL;
+    }
+ }
+ void insertAtPosition (value)
+ {
+    
+ }
  int main ()
  {
     int choice , value, choice1, loc,loc1;
