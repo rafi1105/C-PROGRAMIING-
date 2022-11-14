@@ -25,7 +25,7 @@ int main()
 }
 void createNodeList(int n)
 {
-    struct node *newNode, *tmp;
+    struct node *newNode, *temp;
     int data, i;
     head = (struct node *)malloc(sizeof(struct node));
 
@@ -41,7 +41,7 @@ void createNodeList(int n)
         scanf("%d", &head -> data);
        // head->data = data;      
         head->next = NULL; // links the address field to NULL
-        tmp = head; 
+        temp = head; 
 // Creating n nodes and adding to linked list
         for(i=2; i<=n; i++)
         {
@@ -59,26 +59,26 @@ void createNodeList(int n)
                // newNode->data = data;      // links the data field of newNode with data
                 newNode->next = NULL; // links the address field of newNode with NULL
  
-                tmp->next = newNode; // links previous node i.e. tmp to the newNode
-                tmp = tmp->next; 
+                temp->next = newNode; // links previous node i.e. temp to the newNode
+                temp = temp->next; 
             }
         }
     }
 }
 void displayList()
 {
-    struct node *tmp;
+    struct node *temp;
     if(head == NULL)
     {
         printf(" List is empty.");
     }
     else
     {
-        tmp = head;
-        while(tmp != NULL)
+        temp = head;
+        while(temp != NULL)
         {
-            printf(" Data = %d\n", tmp->data);       // prints the data of current node
-            tmp = tmp->next;                     // advances the position of current node
+            printf(" Data = %d\n", temp->data);       // prints the data of current node
+            temp = temp->next;                     // advances the position of current node
         }
     }
 } 
