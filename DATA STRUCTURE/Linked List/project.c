@@ -180,10 +180,13 @@ void insertAtBeginning (int value)
                 case 3: 
                 Generated_size ();
                 break;
-                case 4:
+                case 4: 
+                delete ();
+                break;
+                case 5:
                 search ();
                 break;
-                case 5: 
+                case 6: 
                 exit (0);
         
         default:
