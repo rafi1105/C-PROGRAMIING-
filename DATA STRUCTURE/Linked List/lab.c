@@ -22,11 +22,11 @@ void insertAtBeginning (int value)
         head = newNode;
     }
 }
- void insertAtEnd (value)
+ void insertAtEnd (int value)
  {
     struct Node *temp;
     struct Node *newNode = ( struct Node*) malloc (sizeof(struct Node));
-    newNode->next = value;
+    newNode-> data = value;
     if (head == NULL)
     {
         newNode->next = NULL;
@@ -43,10 +43,43 @@ void insertAtBeginning (int value)
             newNode->next = NULL;
     }
  }
- void insertAtPosition (value)
+ void insertAtPosition (int value)
  {
+    int location ;
+    struct Node * newNode = (struct Node *) malloc (sizeof (struct Node));
+    struct Node * temp;
+    printf (" enter the location : \n");
+    scanf ("%d", &location);
+    if (head == NULL)
+    {
+        newNode->next = NULL;
+        head = newNode;
+    }
+    else 
+    {
+        temp = head;
+        while ( temp->next != location)
+
+        {
+            temp = temp->next;
+            newNode-> next = temp->next;
+            temp -> next = newNode;
+        }
+
+        printf (" One node inserted");
+    }
     
  }
+  void display ()
+  {
+    struct  Node * temp;  
+    temp = head ;
+    while ( temp->next != NULL)
+    {
+        printf (" DATA --> %d\n", temp->data);
+        temp = temp->next;
+    }
+  }
  int main ()
  {
     int choice , value, choice1, loc,loc1;
@@ -90,10 +123,10 @@ void insertAtBeginning (int value)
                 display ();
                 break;
                 case 3: 
-                Generated_size ();
+             //   Generated_size ();
                 break;
                 case 4:
-                search ();
+            //    search ();
                 break;
                 case 5: 
                 exit (0);
