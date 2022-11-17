@@ -141,7 +141,7 @@ void insertAtBeginning (int value)
     while (1)
     {
         mainMenu :
-        printf ("\n \n ****** MENU ****** \n 1. Insert \n 2. Display \n 3. Generated size \n 4. Search \n 5. Exit \n ");
+        printf ("\n \n ****** MENU ****** \n 1. Insert \n 2. Display \n 3. Generated size \n 4. Delete \n 5. Search \n 5. Exit \n ");
         scanf ("%d", &choice);
         switch (choice)
         {
@@ -164,7 +164,7 @@ void insertAtBeginning (int value)
                     case 3: 
                     insertAtPosition (value);
                     default :
-                //    printf (" Wrong Input ");
+                 //    printf (" Wrong Input ");
                     goto mainMenu;
                 }
                 goto subMenuEnd;

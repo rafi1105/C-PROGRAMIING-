@@ -51,7 +51,6 @@ void insertAtBeginning (int value)
     printf ("\n");
     printf (" enter the location : \n");
     scanf ("%d", &location);
- //   if ( )
     if (head == NULL)
     {
         newNode->next = NULL;
@@ -132,8 +131,7 @@ void insertAtBeginning (int value)
                 printf (" Not found");
             }
         }
-    }
-    
+    } 
   }
  int main ()
  {
@@ -164,12 +162,10 @@ void insertAtBeginning (int value)
                     case 3: 
                     insertAtPosition (value);
                     default :
-                //    printf (" Wrong Input ");
+                 // printf (" Wrong Input ");
                     goto mainMenu;
                 }
                 goto subMenuEnd;
-
-
 
             }
             subMenuEnd :
