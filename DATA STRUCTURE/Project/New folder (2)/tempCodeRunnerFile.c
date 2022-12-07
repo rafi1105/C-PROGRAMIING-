@@ -1,1 +1,0 @@
-char product_name[19][20]
