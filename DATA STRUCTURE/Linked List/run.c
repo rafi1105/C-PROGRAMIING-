@@ -1,90 +1,114 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 struct Node
 {
     int data;
-    struct Node *pre;
     struct Node *next;
-} *head = NULL;
-
-void insertAtBeginningG()
+    struct Node*pre;
+    
+}*head= NULL;
+void insertbeg (int value);
+void insertend (int value);
+void any_possition_insert(int value);
+void display();
+int main ()
 {
-    int value;
-    printf(" Enter the value of the insert: ");
-    scanf("%d", &value);
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    newNode->data = value;
-    newNode->next = NULL;
-    newNode->pre=NULL;
-
-    if (head == NULL)
-    {
-        head = newNode;
-    }
-    else
-    {
-        newNode->next=head;
+      option();
+}
+void insertbeg (int value)
+{
+  
+  struct Node* newNode = (struct Node*)malloc (sizeof (struct Node));
+  
+  newNode->data = value;
+  newNode->next=NULL;
+  newNode->pre = NULL;
+  if (head==NULL)
+  {
+    head = newNode;
+  }
+  else
+  {
+     newNode->next=head;
         head->pre=newNode;
         head=newNode;
-    }
-    printf("Inserted\n");
+  }
+  printf ("\nInserted value at beginning");
+  printf ("\n");
 }
-void insertAtEnd(int value)
+void insertend (int value)
 {
-    struct Node *temp;
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    newNode->data = value;
-    if (head == NULL)
+  struct Node*temp;
+  struct Node* newNode = (struct Node*) malloc (sizeof(struct Node));
+  
+  newNode->data = value;
+  newNode->next=NULL;
+  newNode->pre=NULL;
+  if(head == NULL)
+  {
+    head = newNode;
+   
+  }
+ else 
     {
-        newNode->next = NULL;
-        head = newNode;
-    }
-    else
-    {
-        temp = head;
-        while (temp->next != NULL)
+        temp =head;
+        while ( temp->next != NULL)
         {
             temp = temp->next;
         }
-        temp->next = newNode;
-        newNode->next = NULL;
+            temp -> next = newNode;
+            newNode->pre = temp;    
     }
-}
-void insertAtPosition(int value)
-{
-    int location;
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    struct Node *temp;
+     printf("Inserted value at end");
     printf("\n");
-    printf(" enter the location : \n");
-    scanf("%d", &location);
-    if (head == NULL)
+}
+void any_possition_insert(int value)
+{
+  struct Node *temp,*ptr;
+  struct Node* newNode =(struct Node*) malloc (sizeof (struct Node));
+  int loc,pos=1;
+  newNode->data = value;
+  newNode->next=NULL;
+  if (head==NULL)
+  {
+    head = newNode;
+   }
+  else
+  {
+    
+    printf("Please enter the position you want to insert: ");
+    scanf(" %d", &loc);
+    temp=head;
+    if (loc==1)
     {
-        newNode->next = NULL;
-        head = newNode;
+      newNode->next = temp;
+      temp->pre=newNode;
+      head=newNode;
     }
-    else
+    else{
+       while (pos<loc && temp->next != NULL)
     {
-        newNode->data = value;
-        newNode->next = NULL;
-        temp = head;
-        location--;
-        while (location != 1)
-        {
-            temp = temp->next;
-            location--;
-        }
-        newNode->next = temp->next;
-        temp->next = newNode;
-        printf(" One node inserted");
+      pos++;
+      ptr=temp;
+      temp=temp->next;
+      
     }
+    ptr -> next = newNode;
+    newNode->pre = ptr;
+    newNode->next = temp;
+    }
+   
+  }
+   printf("Inserted value at %d position", loc);
+    printf("\n");;
+
 }
 void display()
 {
-    struct Node *temp= (struct Node*) malloc(sizeof(struct Node));
+  printf ("\n~~~~ Display The List ~~~~~\n");
+    struct Node *temp;
     if (head == NULL)
-        printf("list is empty");
+        printf("\n-> list is empty <-\n");
     else
     {
         temp = head;
@@ -95,100 +119,100 @@ void display()
         }
         printf(" DATA --> %d\n", temp->data);
     }
+ option ();
 }
-
-void insertV()
+void deletedbeg ()
 {
-    int value, choice1;
-    printf(" Enter the value of the insert: ");
-    scanf("%d", &value);
-    printf(" which insertion do you want : \n");
-    printf(" 1. Insert in the beginning \n 2. Insert in the end \n 3. Insert any specific  position \n");
-    scanf("%d", &choice1);
-    switch (choice1)
-    {
-    case 1:
-        //insertAtBeginning(value);
-        break;
-    case 2:
-        insertAtEnd(value);
-        break;
-    case 3:
-        insertAtPosition(value);
-    default:
-        printf(" Wrong Input ");
-    }
-}
-void Generated_size()
-{
-    struct Node *temp;
-    int lengh = 0;
+  struct Node *temp;
+  if (head == NULL)
+  {
+    printf("\n -> list emply <-");
+  }
+  else  
+  {
     temp = head;
-    if (head == NULL)
-        printf("list is Empty");
-    else
-    {
-        while (temp->next != NULL)
-        {
-            lengh++;
-            temp = temp->next;
-        }
-        printf(" The length of the list is : %d\n", lengh);
-    }
+    head=temp -> next;
+    printf("\n Delete First Node !\n");
+  }
+  
 }
-void search()
-{
-    struct Node *temp;
-    int search;
-    printf(" Which element you want to search: ");
-    scanf(" %d", &search);
 
-    if (head == NULL)
-        printf("list is Empty");
-    else
-    {
-        temp = head;
-        while (temp->data != search)
-        {
-            temp = temp->next;
-            if (temp->data == search)
-            {
-                printf(" found the data ");
-            }
-            else
-            {
-                printf(" Not found");
-            }
-        }
-    }
-}
-int main()
-{
-    int choice, value, choice1, loc, loc1;
-    while (1)
-    {
-        printf("\n \n ****** MENU ****** \n 1. Insert \n 2. Display \n 3. Generated size \n 4. Search \n 5. Exit \n ");
-        scanf("%d", &choice);
-        switch (choice)
-        {
-        case 1:
-            insertAtBeginningG();
-            break;
-        case 2:
-            display();
-            break;
-        case 3:
-            Generated_size();
-            break;
-        case 4:
-            search();
-            break;
-        case 5:
-            exit(0);
 
-        default:
-            printf(" Wrong Input");
+
+void option ()
+{
+  int choice,choice2,value, choice1;
+  printf ("\n \n ****** MENU ****** \n 1. Insert \n 2. Delete \n 3. display \n 4. Search \n 5. Exit \n ");
+   printf("Enter the option: ");
+     scanf("%d",&choice1);
+ switch (choice1)
+     {
+     case 1: // insertion order
+      
+              while (1)
+    {
+      printf("\n\n****Insertion*****\n\n 1. Insertion Beginning\n 2. Insertion End\n 3. Insertion Any Position\n 4. Go to Main Menu\n");
+      printf("\n Enter the choice you want to Insertion : --> ");
+      scanf("%d",&choice);
+   printf("\n");
+        switch (choice) // insertion
+        {
+            case 1:
+                    printf("Enter Your Number to insertion : ");
+                  scanf("%d",&value);
+                  insertbeg (value);
             break;
+            case 2: 
+                   printf("Enter Your Number to insertion : ");
+                  scanf("%d",&value);
+                  insertend(value);
+            break;
+            case 3:
+                   printf("Enter Your Number to insertion : ");
+                  scanf("%d",&value);
+                  any_possition_insert( value);
+            break;
+          
+            case 4:
+                  option();
+                  break;
+            default:
+            printf("Invalid choice");
         }
     }
+      break;
+     case 2: // deletetion order
+             while (1)
+    {
+      printf("\n\n****Delete*****\n\n 1. Deleted Beginning\n 2. Deleted End\n 3. Delete Any Position\n 4. Go To Main Menu\n");
+      printf("\n Enter the choice you want to delete --> ");
+      scanf("%d",&choice2);
+   printf("\n");
+        switch (choice2)
+        {
+            case 1:
+                  deletedbeg ();
+            break;
+            case 2:
+                //  deletedend();
+            break;
+            case 3:
+               //  deleted_any();
+            break;
+          
+            case 4:
+                  option();
+                  break;
+            default:
+            printf("Invalid choice");
+        }
+    }
+      break;
+     case 3: display();
+      break;
+     case 5: exit(0);
+     default: printf("Invalid choice");
+      break;
+     }
 }
+
