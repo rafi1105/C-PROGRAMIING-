@@ -35,6 +35,8 @@ int push (int value)
             temp = temp ->next;
         }
         temp ->next = newnode;
+        newnode->next=NULL;
+        printf(" push node-> %d\n",newnode->data);
     }
      option ();
     }
@@ -83,12 +85,11 @@ void show()
    {
     printf(" empty stack\n");
    }
-   else
+   else 
    {
          while (temp ->next != NULL)
    {
-    printf("\n list of the stack is -> \n");
-    printf("\n %d",temp->data);
+    printf("\n list of the stack is ->%d \n", temp->data);
    }
    }
   

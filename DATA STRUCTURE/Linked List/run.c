@@ -47,7 +47,6 @@ void insertend (int value)
   if(head == NULL)
   {
     head = newNode;
-   
   }
  else 
     {
