@@ -4,7 +4,7 @@ struct Node {
     int data;
     struct Node *next;
 }*head=NULL;
-
+void option();
 int empty ()
 {
     if (head==NULL)
@@ -27,22 +27,19 @@ int push (int value)
     if(head==NULL)
     {
         head=newnode;
+         printf(" push node-> %d\n",newnode->data);
     }
     else 
     {
-        while (temp ->next!=NULL)
-        {
-            temp = temp ->next;
-        }
-        temp ->next = newnode;
-        newnode->next=NULL;
+       newnode->next = head;
+       head=newnode;
         printf(" push node-> %d\n",newnode->data);
     }
      option ();
     }
 void peek ()
 {
-    struct Node*temp;
+    struct Node*temp=head;
     if (head==NULL)
     {
         printf(" empty stack\n");
@@ -55,6 +52,7 @@ void peek ()
         }
         printf ("Peek Number is -> %d", temp->data);
     }
+
      option ();
 }
 void pop ()
@@ -85,11 +83,14 @@ void show()
    {
     printf(" empty stack\n");
    }
+   else if(temp->next= NULL)
+ printf("\n list of the stack is ->%d \n", temp->data);
    else 
    {
-         while (temp ->next != NULL)
+         while (temp->next  != NULL)
    {
     printf("\n list of the stack is ->%d \n", temp->data);
+    temp = temp->next;
    }
    }
   
@@ -114,7 +115,7 @@ void option()
             break;
         case 2:
         {
-            peek();
+           // peek();
             pop();
         }
         break;

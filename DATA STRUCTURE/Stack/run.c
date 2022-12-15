@@ -1,71 +1,78 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-int MAXSIZE = 8;       
-int stack[8];     
-int top = -1;            
+struct node
+{
+    int data;
+    struct node *next;
+};
 
-int isempty() {
+struct node *head = NULL;
 
-   if(top == -1)
-      return 1;
-   else
-      return 0;
-}
-   
-int isfull() {
+void push(int val)
+{
+    //create new node
+    struct node *newNode = malloc(sizeof(struct node));
+    newNode->data = val;
 
-   if(top == MAXSIZE)
-      return 1;
-   else
-      return 0;
-}
+    //make the new node points to the head node
+    newNode->next = head;
 
-int peek() {
-   return stack[top];
-}
-
-int pop() {
-   int data;
-	
-   if(!isempty()) {
-      data = stack[top];
-      top = top - 1;   
-      return data;
-   } else {
-      printf("Could not retrieve data, Stack is empty.\n");
-   }
+    //make the new node as head node
+    //so that head will always point the last inserted data
+    head = newNode;
 }
 
-int push(int data) {
+void pop()
+{
+    //temp is used to free the head node
+    struct node *temp;
 
-   if(!isfull()) {
-      top = top + 1;   
-      stack[top] = data;
-   } else {
-      printf("Could not insert data, Stack is full.\n");
-   }
+    if(head == NULL)
+        printf("Stack is Empty\n");
+    else
+    {
+        printf("Poped element = %d\n", head->data);
+
+        //backup the head node
+        temp = head;
+
+        //make the head node points to the next node.
+        //logically removing the node
+        head = head->next;
+
+        //free the poped element's memory
+        free(temp);
+    }
 }
 
-int main() {
-   // push items on to the stack 
-   push(3);
-   push(5);
-   push(9);
-   push(1);
-   push(12);
-   push(15);
+//print the linked list
+void printList()
+{
+    struct node *temp = head;
 
-   printf("Element at top of the stack: %d\n" ,peek());
-   printf("Elements: \n");
+    //iterate the entire linked list and print the data
+    while(temp != NULL)
+    {
+         printf("%d->", temp->data);
+         temp = temp->next;
+    }
+    printf("NULL\n");
+}
 
-   // print stack data 
-   while(!isempty()) {
-      int data = pop();
-      printf("%d\n",data);
-   }
+int main()
+{
+    push(10);
+    push(20);
+    push(30);
+    printf("Linked List\n");
+    printList();
+    pop();
+    printf("After the pop, the new linked list\n");
+    printList();
+    pop();
+    printf("After the pop, the new linked list\n");
+    printList();
 
-   printf("Stack full: %s\n" , isfull()?"true":"false");
-   printf("Stack empty: %s\n" , isempty()?"true":"false");
-   
-   return 0;
+    return 0;
 }
