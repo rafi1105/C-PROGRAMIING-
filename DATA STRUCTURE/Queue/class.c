@@ -60,7 +60,7 @@ void enqueue(int value)
 void dequeue()
 {
 
-    if (front == -1)
+    if (empty())
     {
         printf("Queue is empty \n");
     }
