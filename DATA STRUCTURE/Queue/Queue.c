@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-int queue[10];
+int queue[5];
 int front = -1;
 int rear = -1;
 void option();
@@ -19,20 +19,20 @@ void enqueue(int value)
         front++;
         rear++;
         queue[rear]=value;
+        printf("EnQueue completed -> %d ",value);
     }
-    else
+    else if (rear == 5)
+    {
+        printf("\n Queue is full \n");
+    }
+    else if (rear !=5)
     {
         rear++;
         queue[rear]=value;
-    }
-    printf("EnQueue completed -> %d ",value);
-    if (rear == 10)
-    {
-        printf(" Queue is full \n");
+        printf("EnQueue completed -> %d ",value);
     }
     option();
 }
-
 void dequeue()
 {
     if (front == rear)
@@ -43,11 +43,13 @@ void dequeue()
     {
         printf("DeQueue completed -> %d ",queue[front]);
         front++;
-        if (front == 10)
+        printf(" front is : %d", front);
+        if (front == 6)
         {
-            front = -1;
-            rear = -1;
+            front = 0;
+          //  rear = -1;
         }
+      
     }
     option();
 }
@@ -59,12 +61,18 @@ void display()
     }
     else
     {
-        printf("Queue is not empty \n");
+        if (front <= rear )
+        {
+            printf("Queue is not empty \n");
         for (int i = front; i <= rear; i++)
         {
             printf("%d ",queue[i]);
         }
         printf("\n");
+        }
+        else if (rear <= front){
+            printf("\nQueue circular \n");
+        }
 }
 option();
 }
