@@ -2,6 +2,14 @@
 #include <string.h>
 #include <stdlib.h>
 #include <conio.h>
+
+void option ();
+void insert (char n[], float p, int fin);
+void display ();
+
+void order ();
+int login();
+void display_rd_hist();
 struct items
 {
     char name[50];
@@ -15,7 +23,117 @@ int cust_id =1,Today_customer=0;
 struct items*head;
 struct items*last;
 float total_income=0;
+ void option ()
+ {
+     head=last=NULL;
+    insert ("Burger    ",70.00,1);
+    insert ("Prizza    ",280.00,2);
+    insert ("Hot Cake    ",750.00,3);
+    insert ("Coffee    ",100.00,4);
+    insert ("Ice-Cream  ",50.00,5);
+    insert ("Sandwich    ",60.00,6);
+    insert ("Grill    ",100.00,7);
+    insert ("Nun    ",30.00,8);
+    insert ("Cold Drink    ",20.00,9);
 
+    int choice;
+    do{
+        printf("\n--------------------------------------\n");
+        printf("\n1....FOOD PART");
+        printf("\n2....ADMIN PANEL");
+        printf("\n3....EXIT");
+        printf("\n________________________________________________________________\n");
+        printf("Enter your choice : ");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+            int ex;
+            do{
+                printf("\n");
+                printf("1.     FOOD LIST \n");
+                printf("2.     ODER\n \n");
+
+                int n;
+                scanf ("%d", &n);
+                switch (n)
+                {
+                case 1: display();
+                    break;
+                case 2: order();
+                    break;
+                default:
+                printf("Wrong choice");
+                    break;
+                }
+                printf("1. FOOD PART\n2. MAIN MENU\n");
+                scanf("%d", &ex);
+            }while(ex=1);
+            break;
+            case 2: 
+            printf("\n");
+            int k=login();
+            int e;
+            if (k==1)
+            {
+                do{
+                    printf("\n---------------------------------------------------------------------------------\n");
+                    printf("1.          ADD NEW DISH\n");
+                    printf("2.          TODAY'S TOTAL INCOME\n");
+                    printf("3.          TODAY'S TOTAL NO OF CUSTOMER\n");
+                    printf("4.          ORDER HISTORY\n");
+                    printf("5.          LIST OF items\n");
+                    printf("\n---------------------------------------------------------------------------------\n");
+                    int ch;
+                    scanf("%d", &ch);
+                    switch (ch)
+                    {
+                    case 1:
+                    printf(" ");
+                    float p;
+                    int fin;
+                    char n[50];
+
+                    printf("Enter the name of items : ");
+                    scanf("%s",n);
+                     printf("Enter the price of items : ");
+                    scanf("%f",&p);
+                    printf("Enter the food_Id_No of items : ");
+                    scanf("%d",&fin);
+                    insert(n,p,fin);
+                    printf("\n--------------------------------------------------------------------------------\n");
+                    printf("                         NEW DISH IS ADDED SUCCESSFULLY........\n");
+                    printf("\n--------------------------------------------------------------------------------\n");
+                        break;
+                    case 2:
+                    printf("\n--------------------------------------------------------------------------------\n");
+                    printf("                         TODAY;S TOTAL INCOME IS :- %f\n",total_income);
+                    printf("\n--------------------------------------------------------------------------------\n");
+                    break;
+                    case 3: 
+                    printf("\n--------------------------------------------------------------------------------\n");
+                    printf("                         TODAY TOTAL NO OF CUSTOMER VISITED ID :-%d\n",Today_customer);
+                    printf("\n--------------------------------------------------------------------------------\n");
+                    break;
+                    case 4:
+                    printf("\n--------------------------------------------------------------------------------\n");
+                    printf("                         ORDER SUMMARY........\n");
+                    printf("\n--------------------------------------------------------------------------------\n");
+                    display_rd_hist();
+                    printf("\n");
+                    break;
+                    case 5: display();
+                    break;
+                    default: printf("\nwrong choice\n");
+                        break;
+                    }
+                }while(1);
+            }
+            break;
+        }
+    }while(1);
+  
+ }
 struct order_hist
 {
     int customer_ID;
@@ -106,10 +224,21 @@ int login()
 }
  void order ()
  {
+    printf("\n");
+    printf ("1. Burger            70.00\n");
+    printf ("2.Prizza             280.00\n");
+    printf ("3.Hot Cake           750.00\n");
+    printf ("4.Coffee             100.00\n");
+    printf ("5.Ice-Cream          50.00\n");
+    printf ("6.Sandwich           60.00\n");
+    printf ("7.Grill              100.00\n");
+    printf ("8.Nun                30.00\n");
+    printf ("9.Cold Drink         20.00\n\n");
     int a[10][2];
     int n,j=0,i=0;
+    
     do {
-        printf("Please enter the FOOD IF NUMBER OF items AND ITS QUENTITY");
+        printf("Please enter the FOOD IF NUMBER OF items AND ITS QUENTITY:- ");
         for (i=0; i<2; i++)
         {
             scanf ("%d",&a[j][i]);
@@ -137,17 +266,19 @@ int login()
         while (temp->food_Id_No !=a[k][0])
         {
             temp=temp->next;
+            total_amount = total_amount+ (a[k][1]*(temp->price));
         }
-        printf("----------------------------------------------------------------------------------------------\n");
+        printf("\n----------------------------------------------------------------------------------------------\n");
         printf("%d\t%s\t%d\t\t %f",temp->food_Id_No,temp->name,a[k][1],(a[k][1]*(temp->price)));
     }
  
- printf("-----------------------------------------------------------------------------------------------------\n");
- printf("\nTotal Payble amount is :-\t\t%f\n",total_amount);
- printf("-----------------------------------------------------------------------------------------------------\n");
+        printf("\n----------------------------------------------------------------------------------------------\n");
+        printf("\nTotal Payble amount is :-\t\t%f\n",total_amount);
+        printf("----------------------------------------------------------------------------------------------\n");
+        
 
  struct order_hist* temp2=getnewNode_hist();
- temp2->amount=total_amount;
+ temp2->amount=+total_amount;
  temp2->customer_ID=cust_id++;
 
  int p,s;
@@ -173,6 +304,7 @@ int login()
  strcpy(temp2->date,Date);
  Today_customer++;
  total_income+=total_amount;
+ void option ();
  }
 
  void display_rd_hist()
@@ -184,117 +316,19 @@ int login()
     struct order_hist *temp=head1;
     if (head1==NULL)
     {
-        printf("%d\t%s\t%f\t\n",temp->customer_ID,temp->date,temp->amount);
+        printf ("No history available");
+    }
+    else 
+    {
+        while (temp->next !=NULL){
+            printf("%d\t%s\t%f\t\n",temp->customer_ID,temp->date,temp->amount);
         temp=temp->next;
+        }
+        
     }
  }
  int main()
  {
-    head=last=NULL;
-    insert ("Burger    ",70.00,1);
-    insert ("Prizza    ",280.00,6);
-    insert ("Hot Cake    ",750.00,10);
-    insert ("Coffee    ",100.00,2);
-    insert ("Ice-Cream  ",50.00,3);
-    insert ("Sandwich    ",60.00,4);
-    insert ("Grill    ",100.00,7);
-    insert ("Nun    ",30.00,8);
-    insert ("Cold Drink    ",20.00,9);
-
-    int choice;
-    do{
-        printf("\n--------------------------------------\n1");
-        printf("\n1....FOOD PART");
-        printf("\n2....ADMIN PANEL");
-        printf("\n3....EXIT");
-        printf("\n________________________________________________________________\n");
-        printf("Enter your choice : ");
-        scanf("%d",&choice);
-        switch(choice)
-        {
-            case 1: printf("");
-            int ex;
-            do{
-                printf("\n");
-                printf("1.     FOOD LIST \n 2.         ODER\n");
-                int n;
-                scanf ("%d", &n);
-                switch (n)
-                {
-                case 1: display();
-                    break;
-                case 2: order();
-                    break;
-                default:
-                printf("Wrong choice");
-                    break;
-                }
-                printf("1. FOOD PART\n2. MAIN MENU\n");
-                scanf("%d", &ex);
-            }while(ex=1);
-            break;
-            case 2: 
-            printf("\n");
-            int k=login();
-            int e;
-            if (k==1)
-            {
-                do{
-                    printf("\n---------------------------------------------------------------------------------\n");
-                    printf("1.          ADD NEW DISH\n");
-                    printf("2.          TODAY'S TOTAL INCOME\n");
-                    printf("3.          TODAY'S TOTAL NO OF CUSTOMER\n");
-                    printf("4.          ORDER HISTORY\n");
-                    printf("5.          LIST OF items\n");
-                    printf("\n---------------------------------------------------------------------------------\n");
-                    int ch;
-                    scanf("%d", &ch);
-                    switch (ch)
-                    {
-                    case 1:
-                    printf(" ");
-                    float p;
-                    int fin;
-                    char n[50];
-
-                    printf("Enter the name of items : ");
-                    scanf("%s",n);
-                     printf("Enter the price of items : ");
-                    scanf("%f",&p);
-                    printf("Enter the food_Id_No of items : ");
-                    scanf("%d",&fin);
-                    insert(n,p,fin);
-                    printf("\n--------------------------------------------------------------------------------\n");
-                    printf("                         NEW DISH IS ADDED SUCCESSFULLY........\n");
-                    printf("\n--------------------------------------------------------------------------------\n");
-                        break;
-                    case 2:
-                    printf("\n--------------------------------------------------------------------------------\n");
-                    printf("                         TODAY;S TOTAL INCOME IS :- %f\n",total_income);
-                    printf("\n--------------------------------------------------------------------------------\n");
-                    break;
-                    case 3: 
-                    printf("\n--------------------------------------------------------------------------------\n");
-                    printf("                         TODAY TOTAL NO OF CUSTOMER VISITED ID :-%d\n",Today_customer);
-                    printf("\n--------------------------------------------------------------------------------\n");
-                    break;
-                    case 4:
-                    printf("\n--------------------------------------------------------------------------------\n");
-                    printf("                         ORDER SUMMARY........\n");
-                    printf("\n--------------------------------------------------------------------------------\n");
-                    display_rd_hist();
-                    printf("\n");
-                    break;
-                    case 5: display();
-                    break;
-                    default: printf("\nwrong choice\n");
-                        break;
-                    }
-                }while(1);
-            }
-            break;
-        }
-    }while(1);
-    return 0;
+   option ();
  
  }
