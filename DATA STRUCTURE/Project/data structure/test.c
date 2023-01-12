@@ -8,6 +8,7 @@ void insert (char n[], float p, int fin);
 void display ();
 
 void order ();
+void Log();
 int login();
 void display_rd_hist();
 struct items
@@ -23,57 +24,11 @@ int cust_id =1,Today_customer=0;
 struct items*head;
 struct items*last;
 float total_income=0;
- void option ()
- {
-     head=last=NULL;
-    insert ("Burger    ",70.00,1);
-    insert ("Prizza    ",280.00,2);
-    insert ("Hot Cake    ",750.00,3);
-    insert ("Coffee    ",100.00,4);
-    insert ("Ice-Cream  ",50.00,5);
-    insert ("Sandwich    ",60.00,6);
-    insert ("Grill    ",100.00,7);
-    insert ("Nun    ",30.00,8);
-    insert ("Cold Drink    ",20.00,9);
-
-    int choice;
-    do{
-        printf("\n--------------------------------------\n");
-        printf("\n1....FOOD PART");
-        printf("\n2....ADMIN PANEL");
-        printf("\n3....EXIT");
-        printf("\n________________________________________________________________\n");
-        printf("Enter your choice : ");
-        scanf("%d",&choice);
-        switch(choice)
-        {
-            case 1:
-            int ex;
-            do{
-                printf("\n");
-                printf("1.     FOOD LIST \n");
-                printf("2.     ODER\n \n");
-
-                int n;
-                scanf ("%d", &n);
-                switch (n)
-                {
-                case 1: display();
-                    break;
-                case 2: order();
-                    break;
-                default:
-                printf("Wrong choice");
-                    break;
-                }
-                printf("1. FOOD PART\n2. MAIN MENU\n");
-                scanf("%d", &ex);
-            }while(ex=1);
-            break;
-            case 2: 
-            printf("\n");
+void Log()
+{
+    printf("\n");
             int k=login();
-            int e;
+         //   int e;
             if (k==1)
             {
                 do{
@@ -83,6 +38,7 @@ float total_income=0;
                     printf("3.          TODAY'S TOTAL NO OF CUSTOMER\n");
                     printf("4.          ORDER HISTORY\n");
                     printf("5.          LIST OF items\n");
+                    printf("6.          MAIN MENU\n");
                     printf("\n---------------------------------------------------------------------------------\n");
                     int ch;
                     scanf("%d", &ch);
@@ -124,15 +80,83 @@ float total_income=0;
                     break;
                     case 5: display();
                     break;
+                    case 6: option();
+                     break;
                     default: printf("\nwrong choice\n");
                         break;
                     }
                 }while(1);
             }
+            
+        
+}
+ void option ()
+ {
+     head=last=NULL;
+    insert ("Burger    ",70.00,1);
+    insert ("Prizza    ",280.00,2);
+    insert ("Hot Cake    ",750.00,3);
+    insert ("Coffee    ",100.00,4);
+    insert ("Ice-Cream  ",50.00,5);
+    insert ("Sandwich    ",60.00,6);
+    insert ("Grill    ",100.00,7);
+    insert ("Nun    ",30.00,8);
+    insert ("Cold Drink    ",20.00,9);
+
+    int choice;
+    do{
+        printf ("\n MOMO IN Restuarent\n");
+             printf ("\n Bogura 5* star Hotel\n");
+        printf("\n________________________________________________________________\n");
+        printf("\n1    FOOD PART");
+        printf("\n2    ADMIN PANEL");
+        printf("\n3    EXIT");
+        printf("\n________________________________________________________________\n");
+        printf("Enter your choice : ");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+            int ex;
+            do{
+                printf("\n");
+                printf("1.     FOOD LIST \n");
+                printf("2.     ODER\n3.     ADMIN PANEL\n");
+              //  printf("3.    ADMIN PANEL\n");
+                printf("4.     EXIT \n\n");
+                int n;
+                scanf ("%d", &n);
+                switch (n)
+                {
+                case 1: display();
+                    break;
+                case 2: order();
+                    break;
+                case 3: Log();
+                    break;
+                case 4: exit(0);
+                    break;
+                default:
+                printf("Wrong choice");
+                    break;
+                }
+                printf("1. FOOD PART\n2. MAIN MENU\n");
+                scanf("%d", &ex);
+                if (ex==2){
+                    option();
+                    break;
+                }
+                
+            }while(/*ex=*/1);
             break;
-        }
-    }while(1);
-  
+            case 2: 
+            Log();
+            break;
+            default: {
+                option();
+            }
+            }
+    }while (1);
  }
 struct order_hist
 {
@@ -257,7 +281,9 @@ int login()
     scanf("%s", Date);
     int k=0;
     printf("\n ----------------------------------------------------------------------------------------------- \n");
-    printf("                                    BILL                            \n");
+        printf("\n                                   MOMO IN Restuarant                                     \n");
+    printf("\n                                       BILL -> %s                                          \n",name);
+    printf("\n ----------------------------------------------------------------------------------------------- \n");
     printf("Name :-%s\n",name);
     printf("Date:-%s\n",Date);
     for (k=0; k<j;k++)
@@ -266,19 +292,20 @@ int login()
         while (temp->food_Id_No !=a[k][0])
         {
             temp=temp->next;
-            total_amount = total_amount+ (a[k][1]*(temp->price));
+        // total_amount = total_amount+ (a[k][1]*(temp->price));
         }
         printf("\n----------------------------------------------------------------------------------------------\n");
         printf("%d\t%s\t%d\t\t %f",temp->food_Id_No,temp->name,a[k][1],(a[k][1]*(temp->price)));
+         total_amount = total_amount+ (a[k][1]*(temp->price));
     }
  
         printf("\n----------------------------------------------------------------------------------------------\n");
         printf("\nTotal Payble amount is :-\t\t%f\n",total_amount);
-        printf("----------------------------------------------------------------------------------------------\n");
+        printf("------------------------------------------------------------------------------------------------\n");
         
 
  struct order_hist* temp2=getnewNode_hist();
- temp2->amount=+total_amount;
+ temp2->amount=total_amount;
  temp2->customer_ID=cust_id++;
 
  int p,s;
