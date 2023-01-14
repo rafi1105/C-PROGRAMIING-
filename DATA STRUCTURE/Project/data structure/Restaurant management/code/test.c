@@ -108,7 +108,7 @@ void Log()
         printf ("\n MOMO IN Restuarent\n");
              printf ("\n Bogura 5* star Hotel\n");
         printf("\n________________________________________________________________\n");
-        printf("\n1    FOOD PART");
+        printf("\n1    CUSTOMER PANEL");
         printf("\n2    ADMIN PANEL");
         printf("\n3    EXIT");
         printf("\n________________________________________________________________\n");
