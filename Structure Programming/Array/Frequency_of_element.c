@@ -46,6 +46,8 @@ int main()
         if(freq[i] != 0)
         {
             printf("%d occurs %d times\n", arr[i], freq[i]);
+            printf("\n");
+            printf("\n");
         }
     }
     return 0;
